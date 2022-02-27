@@ -642,7 +642,7 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   cloudProjectId: a3cc8733-9f6c-43c4-b3e2-d4858c596ea1
   framebufferDepthMemorylessMode: 0
-  projectName: ViveEyeTracking
+  projectName: CityGame
   organizationId: khalilacheche
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
