@@ -28,7 +28,7 @@ using Valve.VR;
     rollingAverage.Dequeue();
     rollingAverage.Enqueue(speedDirection); 
     GetComponent<Rigidbody>().velocity = getMean();
-    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+    //Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
     }
 
     private Vector3 getMean(){

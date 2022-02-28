@@ -54,8 +54,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BITalinoConnector.cs" />
+     <Compile Include="Assets\Fire.cs" />
      <Compile Include="Assets\LSLEyeTracker.cs" />
-     <Compile Include="Assets\Renderers.cs" />
      <Compile Include="Assets\Scripts\BlinkTracker.cs" />
      <Compile Include="Assets\Scripts\CallCalibration.cs" />
      <Compile Include="Assets\Scripts\DebugLineDrawing.cs" />
@@ -85,10 +85,12 @@
      <Compile Include="Assets\ViveSR\Scripts\SRanipal_Eye_Framework.cs" />
      <Compile Include="Assets\ViveSR\Scripts\SRanipal_EyeShapeTableDrawer.cs" />
      <Compile Include="Assets\ViveSR\Scripts\SRWorks_Enums.cs" />
+     <Compile Include="Assets\WaterHoseManager.cs" />
      <None Include="Assets\ViveSR\Shaders\DartBoardShader.shader" />
      <None Include="Assets\POLYGON city pack\Read_me.txt" />
      <None Include="Assets\Materials\NonUIOcclusion.shader" />
      <None Include="Assets\ViveSR\Shaders\Unlit-Alpha2Gray.shader" />
+     <None Include="Assets\Polygonal Particles\Assets\Shaders\GradientBackgroundShader.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/TP/Desktop/Khalil_Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
