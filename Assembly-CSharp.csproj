@@ -72,6 +72,10 @@
      <Compile Include="Assets\Scripts\SwitchOnClick.cs" />
      <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\ThreadReader.cs" />
+     <Compile Include="Assets\SimplePoly - Town Pack\DemoScene\FlyCamera.cs" />
+     <Compile Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
+     <Compile Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
+     <Compile Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\SunShafts.cs" />
      <Compile Include="Assets\ViveSR\Scripts\Sample\DartBoard.cs" />
      <Compile Include="Assets\ViveSR\Scripts\Sample\SRanipal_AvatarEyeSample.cs" />
      <Compile Include="Assets\ViveSR\Scripts\Sample\SRanipal_EyeFocusSample.cs" />
@@ -86,9 +90,11 @@
      <Compile Include="Assets\ViveSR\Scripts\SRanipal_EyeShapeTableDrawer.cs" />
      <Compile Include="Assets\ViveSR\Scripts\SRWorks_Enums.cs" />
      <Compile Include="Assets\WaterHoseManager.cs" />
+     <None Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\ViveSR\Shaders\DartBoardShader.shader" />
      <None Include="Assets\POLYGON city pack\Read_me.txt" />
      <None Include="Assets\Materials\NonUIOcclusion.shader" />
+     <None Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\ViveSR\Shaders\Unlit-Alpha2Gray.shader" />
      <None Include="Assets\Polygonal Particles\Assets\Shaders\GradientBackgroundShader.shader" />
  <Reference Include="Unity.Timeline.Editor">
