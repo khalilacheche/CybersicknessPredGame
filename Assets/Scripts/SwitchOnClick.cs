@@ -5,26 +5,40 @@ using Valve.VR;
 
 public class SwitchOnClick : MonoBehaviour
 {
+    public enum SwitchType {
+        Click, Hold
+    }
+    public bool initialState;
+    public SwitchType switchType; 
     private bool state;
     public SteamVR_Input_Sources hand;
-    public GameObject toDisable;
+    public GameObject toSwitch;
     
     // Start is called before the first frame update
     void Start()
     {
-        state = false;
-        toDisable.SetActive(state);
-        SteamVR_Actions._default.GrabPinch.AddOnStateDownListener(switchMapState, hand);
+        state = initialState;
+        toSwitch.SetActive(state);
+        SteamVR_Actions._default.GrabPinch.AddOnStateDownListener(handleDown, hand);
+        SteamVR_Actions._default.GrabPinch.AddOnStateUpListener(handleUp,hand);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        
     }
-    public void switchMapState(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource){
+    public void handleDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource){
         state = !state;
-        toDisable.SetActive(state);
+        toSwitch.SetActive(state);
+    }
+    public void handleUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource){
+        if(switchType == SwitchType.Click){
+            return;
+        }
+        state =!state;
+        toSwitch.SetActive(state);
+
     }
 }

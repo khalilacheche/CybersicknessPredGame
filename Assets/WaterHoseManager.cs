@@ -6,10 +6,10 @@ using Valve.VR.InteractionSystem;
 public class WaterHoseManager : MonoBehaviour
 {
     private Transform pointerStartTransform;
-    private TeleportArc teleportArc;
+    private WaterArc waterArc;
 
-private Vector3 invalidReticleScale = Vector3.one;
-public Transform invalidReticleTransform;
+private Vector3 reticleScale = Vector3.one;
+public Transform reticleTransform;
     public Color lineColor;
 
     private LineRenderer pointerLineRenderer;
@@ -20,18 +20,18 @@ public Transform invalidReticleTransform;
     public LayerMask traceLayerMask;
     private Player player;
 
-    private Quaternion invalidReticleTargetRotation = Quaternion.identity;
+    private Quaternion reticleTargetRotation = Quaternion.identity;
 
 
-    		private float invalidReticleMinScale = 0.2f;
-		private float invalidReticleMaxScale = 1.0f;
-		private float invalidReticleMinScaleDistance = 0.4f;
-		private float invalidReticleMaxScaleDistance = 2.0f;
+    private float reticleMinScale = 0.2f;
+	private float reticleMaxScale = 1.0f;
+	private float reticleMinScaleDistance = 0.4f;
+	private float reticleMaxScaleDistance = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
-        teleportArc = GetComponent<TeleportArc>();
-        teleportArc.traceLayerMask = traceLayerMask;
+        waterArc = GetComponent<WaterArc>();
+        
         player = Valve.VR.InteractionSystem.Player.instance;
         pointerStartTransform = hand.transform;
         
@@ -40,7 +40,7 @@ public Transform invalidReticleTransform;
     // Update is called once per frame
     void Update()
     {
-        teleportArc.Show();
+        waterArc.Show();
         
         if(pointerLineRenderer == null){
             pointerLineRenderer = GetComponentInChildren<LineRenderer>();
@@ -70,8 +70,8 @@ public Transform invalidReticleTransform;
 
 			//Trace to see if the pointer hit anything
 			RaycastHit hitInfo;
-			teleportArc.SetArcData( pointerStart, arcVelocity, true, pointerAtBadAngle );
-			if ( teleportArc.DrawArc( out hitInfo ) )
+			waterArc.SetArcData( pointerStart, arcVelocity, true, pointerAtBadAngle );
+			if ( waterArc.DrawArc( out hitInfo ) )
 			{
 				hitSomething = true;
 			}
@@ -79,7 +79,7 @@ public Transform invalidReticleTransform;
 			
 
 
-				teleportArc.SetColor( lineColor );
+				waterArc.SetColor( lineColor );
 
 				pointerLineRenderer.startColor = lineColor;
 				pointerLineRenderer.endColor = lineColor;
@@ -91,16 +91,16 @@ public Transform invalidReticleTransform;
 				{
 					normalToUse = Vector3.up;
 				}
-				invalidReticleTargetRotation = Quaternion.FromToRotation( Vector3.up, normalToUse );
-				invalidReticleTransform.rotation = Quaternion.Slerp( invalidReticleTransform.rotation, invalidReticleTargetRotation, 0.1f );
+				reticleTargetRotation = Quaternion.FromToRotation( Vector3.up, normalToUse );
+				reticleTransform.rotation = Quaternion.Slerp( reticleTransform.rotation, reticleTargetRotation, 0.1f );
 
 				//Scale the invalid reticle based on the distance from the player
 				float distanceFromPlayer = Vector3.Distance( hitInfo.point, player.hmdTransform.position );
-				float invalidReticleCurrentScale = Util.RemapNumberClamped( distanceFromPlayer, invalidReticleMinScaleDistance, invalidReticleMaxScaleDistance, invalidReticleMinScale, invalidReticleMaxScale );
-				invalidReticleScale.x = invalidReticleCurrentScale;
-				invalidReticleScale.y = invalidReticleCurrentScale;
-				invalidReticleScale.z = invalidReticleCurrentScale;
-				invalidReticleTransform.transform.localScale = invalidReticleScale;
+				float reticleCurrentScale = Util.RemapNumberClamped( distanceFromPlayer, reticleMinScaleDistance, reticleMaxScaleDistance, reticleMinScale, reticleMaxScale );
+				reticleScale.x = reticleCurrentScale;
+				reticleScale.y = reticleCurrentScale;
+				reticleScale.z = reticleCurrentScale;
+				reticleTransform.transform.localScale = reticleScale;
 
 
 				if ( hitSomething )
@@ -109,15 +109,13 @@ public Transform invalidReticleTransform;
 				}
 				else
 				{
-					pointerEnd = teleportArc.GetArcPositionAtTime( teleportArc.arcDuration );
+					pointerEnd = waterArc.GetArcPositionAtTime( waterArc.arcDuration );
 				}
 
 			
 
 
 
-			invalidReticleTransform.position = pointerEnd;
-			pointerLineRenderer.SetPosition( 0, pointerStart );
-			pointerLineRenderer.SetPosition( 1, pointerEnd );
+			reticleTransform.position = pointerEnd;
 		}
 }
