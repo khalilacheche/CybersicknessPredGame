@@ -12,6 +12,8 @@ TagManager:
   - Manager
   - MarkerObject
   - CoinListObject
+  - Obstacle
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - MiniMapIcons
   - Fire
   - GameManager
-  - 
+  - Obstacle
   - 
   - 
   - 

@@ -2,6 +2,8 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,6 +58,7 @@
      <Compile Include="Assets\BITalinoConnector.cs" />
      <Compile Include="Assets\Fire.cs" />
      <Compile Include="Assets\LSLEyeTracker.cs" />
+     <Compile Include="Assets\movement_manager.cs" />
      <Compile Include="Assets\Scripts\BlinkTracker.cs" />
      <Compile Include="Assets\Scripts\CallCalibration.cs" />
      <Compile Include="Assets\Scripts\DebugLineDrawing.cs" />
@@ -69,9 +72,12 @@
      <Compile Include="Assets\Scripts\LSLPlayerLogger.cs" />
      <Compile Include="Assets\Scripts\PlayerMove.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\RotationMovement.cs" />
      <Compile Include="Assets\Scripts\SwitchOnClick.cs" />
      <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\ThreadReader.cs" />
+     <Compile Include="Assets\Scripts\X_axisMovement.cs" />
+     <Compile Include="Assets\Scripts\Y_axisMovement.cs" />
      <Compile Include="Assets\SimplePoly - Town Pack\DemoScene\FlyCamera.cs" />
      <Compile Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
      <Compile Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
@@ -94,6 +100,8 @@
      <None Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\ViveSR\Shaders\DartBoardShader.shader" />
      <None Include="Assets\POLYGON city pack\Read_me.txt" />
+     <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
+     <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
      <None Include="Assets\Materials\NonUIOcclusion.shader" />
      <None Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\ViveSR\Shaders\Unlit-Alpha2Gray.shader" />
