@@ -59,6 +59,7 @@
      <Compile Include="Assets\Fire.cs" />
      <Compile Include="Assets\LSLEyeTracker.cs" />
      <Compile Include="Assets\movement_manager.cs" />
+     <Compile Include="Assets\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\BlinkTracker.cs" />
      <Compile Include="Assets\Scripts\CallCalibration.cs" />
      <Compile Include="Assets\Scripts\DebugLineDrawing.cs" />

@@ -63,10 +63,10 @@ public Transform reticleTransform;
 			float dotUp = Vector3.Dot( pointerDir, Vector3.up );
 			float dotForward = Vector3.Dot( pointerDir, player.hmdTransform.forward );
 			bool pointerAtBadAngle = false;
-			if ( ( dotForward > 0 && dotUp > 0.75f ) || ( dotForward < 0.0f && dotUp > 0.5f ) )
+			/*if ( ( dotForward > 0 && dotUp > 0.75f ) || ( dotForward < 0.0f && dotUp > 0.5f ) )
 			{
 				pointerAtBadAngle = true;
-			}
+			}*/
 
 			//Trace to see if the pointer hit anything
 			RaycastHit hitInfo;
@@ -102,14 +102,15 @@ public Transform reticleTransform;
 				reticleScale.z = reticleCurrentScale;
 				reticleTransform.transform.localScale = reticleScale;
 
+					pointerEnd = hitInfo.point;
 
 				if ( hitSomething )
 				{
-					pointerEnd = hitInfo.point;
+					//pointerEnd = hitInfo.point;
 				}
 				else
 				{
-					pointerEnd = waterArc.GetArcPositionAtTime( waterArc.arcDuration );
+					//pointerEnd = waterArc.GetArcPositionAtTime( waterArc.arcDuration );
 				}
 
 			

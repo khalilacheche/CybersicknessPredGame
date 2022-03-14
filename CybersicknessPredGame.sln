@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteamVR", "SteamVR.csproj", "{2B101B37-221F-CA76-FE78-8D010E85DA8A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteamVR_Actions", "SteamVR_Actions.csproj", "{8F3209D5-C304-109E-8C23-F17F805112B8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteamVR_Editor", "SteamVR_Editor.csproj", "{D6AD2B75-E0C0-0B93-A73E-BD5C3AAB734F}"
 EndProject
@@ -19,6 +19,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2B101B37-221F-CA76-FE78-8D010E85DA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B101B37-221F-CA76-FE78-8D010E85DA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B101B37-221F-CA76-FE78-8D010E85DA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,10 +31,6 @@ Global
 		{8F3209D5-C304-109E-8C23-F17F805112B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F3209D5-C304-109E-8C23-F17F805112B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F3209D5-C304-109E-8C23-F17F805112B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D6AD2B75-E0C0-0B93-A73E-BD5C3AAB734F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D6AD2B75-E0C0-0B93-A73E-BD5C3AAB734F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6AD2B75-E0C0-0B93-A73E-BD5C3AAB734F}.Release|Any CPU.ActiveCfg = Release|Any CPU
