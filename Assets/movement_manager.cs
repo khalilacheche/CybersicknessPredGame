@@ -35,20 +35,32 @@ public class movement_manager : MonoBehaviour
     float degreesPerSecond = 20;
     public float rotationSpeed = 5;
     private float yThreshold = 1f;
+
+
+    private GameManager gm;
     // Start is called before the first frame update
     void Start(){
+        gm = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
+        if (yRotation && !xTranslation && !zTranslation){
+            transform.position = new Vector3(-108,-0.89f, 179.4f);
+        }
+
         targetLane = rightLane;
         targetAngleIndex = 0;
     }
 
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate(){
 
         if(xTranslation){
-            if ((transform.position.x <= -180) || (transform.position.x >= 50)){
-            xDirection *= -1;
-            if (xSpeed < maxXSpeed)
-                xSpeed *= 1.5f;
+            if (transform.position.x < gm.laneStart){
+                xDirection = -1;
+                gm.randomizeObstaclePositions();
+
+            } 
+            if(transform.position.x > gm.laneEnd){
+                xDirection = 1;
+                gm.randomizeObstaclePositions();
             }
             transform.position += Vector3.left * Time.deltaTime * xSpeed * xDirection;
         }

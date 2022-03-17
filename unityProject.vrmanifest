@@ -2,13 +2,13 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.viveeyetracking.exe",
+      "app_key": "application.generated.unity.cybersicknesspredgame.exe",
       "launch_type": "url",
       "url": "steam://launch/",
       "action_manifest_path": "C:\\Users\\TP\\Desktop\\Khalil_Raed\\CybersicknessPredGame\\actions.json",
       "strings": {
         "en_us": {
-          "name": "ViveEyeTracking [Testing]"
+          "name": "CybersicknessPredGame [Testing]"
         }
       }
     }

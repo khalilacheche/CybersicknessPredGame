@@ -118,11 +118,14 @@ using UnityEngine;
         //-------------------------------------------------
         public void Show()
         {
-            showArc = true;
             if (lineRenderers == null)
             {
                 CreateLineRendererObjects();
             }
+            if(!showArc){
+                setLineSegments(0,segmentCount,true);
+            }
+            showArc = true;
         }
 
 
@@ -132,7 +135,7 @@ using UnityEngine;
             //Hide the line segments if they were previously being shown
             if (showArc)
             {
-                HideLineSegments(0, segmentCount);
+                setLineSegments(0, segmentCount,false);
             }
             showArc = false;
         }
@@ -165,7 +168,7 @@ using UnityEngine;
                 lineRenderers[0].SetPosition(0, GetArcPositionAtTime(0.0f));
                 lineRenderers[0].SetPosition(1, GetArcPositionAtTime(arcHitTime < timeStep ? arcHitTime : timeStep));
 
-                HideLineSegments(1, segmentCount);
+                setLineSegments(1, segmentCount,false);
             }
             else
             {
@@ -220,7 +223,7 @@ using UnityEngine;
                 }
 
                 //Hide the rest of the line segments
-                HideLineSegments(currentSegment + 1, segmentCount);
+                setLineSegments(currentSegment + 1, segmentCount,false);
             }
 
             return arcHitTime != float.MaxValue;
@@ -230,7 +233,7 @@ using UnityEngine;
         //-------------------------------------------------
         private void DrawArcSegment(int index, float startTime, float endTime)
         {
-            lineRenderers[index].enabled = true;
+            lineRenderers[index].enabled = showArc;
             lineRenderers[index].SetPosition(0, GetArcPositionAtTime(startTime));
             lineRenderers[index].SetPosition(1, GetArcPositionAtTime(endTime));
         }
@@ -287,13 +290,13 @@ using UnityEngine;
 
 
         //-------------------------------------------------
-        private void HideLineSegments(int startSegment, int endSegment)
+        private void setLineSegments(int startSegment, int endSegment, bool state)
         {
             if (lineRenderers != null)
             {
                 for (int i = startSegment; i < endSegment; ++i)
                 {
-                    lineRenderers[i].enabled = false;
+                    lineRenderers[i].enabled = state;
                 }
             }
         }

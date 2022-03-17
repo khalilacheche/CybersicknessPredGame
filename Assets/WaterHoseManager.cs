@@ -8,14 +8,16 @@ public class WaterHoseManager : MonoBehaviour
     private Transform pointerStartTransform;
     private WaterArc waterArc;
 
-private Vector3 reticleScale = Vector3.one;
-public Transform reticleTransform;
-    public Color lineColor;
+	private float waterConsumption;
 
+	private Vector3 reticleScale = Vector3.one;
+	public Transform reticleTransform;
+    public Color lineColor;
+	public float waterFlowPersecond = 1.66f;
     private LineRenderer pointerLineRenderer;
 
     public GameObject hand;
-
+	public  GameObject splash;
     public float arcDistance = 10.0f;
     public LayerMask traceLayerMask;
     private Player player;
@@ -30,23 +32,30 @@ public Transform reticleTransform;
     // Start is called before the first frame update
     void Start()
     {
+        //splash = GameObject.FindGameObjectWithTag("Water");
         waterArc = GetComponent<WaterArc>();
-        
         player = Valve.VR.InteractionSystem.Player.instance;
         pointerStartTransform = hand.transform;
+		waterConsumption = 0;
         
     }
     
     // Update is called once per frame
     void Update()
     {
-        waterArc.Show();
         
         if(pointerLineRenderer == null){
             pointerLineRenderer = GetComponentInChildren<LineRenderer>();
-        }else{
+        }else {
             UpdatePointer();
         }
+		
+		if(splash.gameObject.activeSelf){
+			waterConsumption += waterFlowPersecond * Time.deltaTime;
+			waterArc.Show();
+		}else {
+			waterArc.Hide();
+		}
     }
 
     private void UpdatePointer()
@@ -102,15 +111,15 @@ public Transform reticleTransform;
 				reticleScale.z = reticleCurrentScale;
 				reticleTransform.transform.localScale = reticleScale;
 
-					pointerEnd = hitInfo.point;
+				//pointerEnd = hitInfo.point;
 
 				if ( hitSomething )
 				{
-					//pointerEnd = hitInfo.point;
+					pointerEnd = hitInfo.point;
 				}
 				else
 				{
-					//pointerEnd = waterArc.GetArcPositionAtTime( waterArc.arcDuration );
+					pointerEnd = waterArc.GetArcPositionAtTime( waterArc.arcDuration );
 				}
 
 			
@@ -119,4 +128,8 @@ public Transform reticleTransform;
 
 			reticleTransform.position = pointerEnd;
 		}
+	public float getWaterConsumption(){
+		return waterConsumption;
+	}
 }
+

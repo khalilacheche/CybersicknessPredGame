@@ -97,6 +97,7 @@
      <Compile Include="Assets\ViveSR\Scripts\SRanipal_EyeShapeTableDrawer.cs" />
      <Compile Include="Assets\ViveSR\Scripts\SRWorks_Enums.cs" />
      <Compile Include="Assets\WaterArc.cs" />
+     <Compile Include="Assets\WaterConsumptionTracker.cs" />
      <Compile Include="Assets\WaterHoseManager.cs" />
      <None Include="Assets\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\ViveSR\Shaders\DartBoardShader.shader" />
