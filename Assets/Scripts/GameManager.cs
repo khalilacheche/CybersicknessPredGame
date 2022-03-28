@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject player;
 
-    private const float MIN_DISTANCE_BETWEEN_CARS = 10;
+    private const float MIN_DISTANCE_BETWEEN_CARS = 50;
 
     private bool started = false;
     void Start(){
@@ -95,14 +95,14 @@ public class GameManager : MonoBehaviour
             float newX = laneStart;
             bool found = false;
             //newX = Random.Range(laneStart,laneEnd);
-            
             do {
                 newX = Random.Range(laneStart,laneEnd);
+                found = true;
                 foreach (float prev in generated)
                 {
-                    found = (Mathf.Abs(newX-prev) < MIN_DISTANCE_BETWEEN_CARS);
+                    found = found && (Mathf.Abs(newX - prev) > MIN_DISTANCE_BETWEEN_CARS);
                 }
-            }while(found);
+            }while(!found) ;
             generated.Add(newX);
             obs.transform.position = new Vector3 (newX,obs.transform.position.y,obs.transform.position.z);
         }

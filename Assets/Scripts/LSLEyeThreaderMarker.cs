@@ -1,4 +1,6 @@
-﻿/* Author: Phil Lopes on 28 of August 2019  */
+﻿/* Author: Phil Lopes on 28 of August 2019
+    Modification: Khalil Acheche on 28 ofmarch 2022
+  */
 
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ using static BlinkTracker;
 using static EyeTracker;
 using LSL;
 
-public class EyeThreader : MonoBehaviour
+public class LSLEyeThreaderMarker : MonoBehaviour
 {
     public EyeData data = new EyeData();
     private Thread thread;

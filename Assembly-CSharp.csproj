@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -58,25 +56,26 @@
      <Compile Include="Assets\BITalinoConnector.cs" />
      <Compile Include="Assets\Fire.cs" />
      <Compile Include="Assets\LSLEyeTracker.cs" />
+     <Compile Include="Assets\LSLPlayerMovementMarker.cs" />
      <Compile Include="Assets\movement_manager.cs" />
      <Compile Include="Assets\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\BlinkTracker.cs" />
      <Compile Include="Assets\Scripts\CallCalibration.cs" />
      <Compile Include="Assets\Scripts\DebugLineDrawing.cs" />
-     <Compile Include="Assets\Scripts\EyeThreader.cs" />
+     <Compile Include="Assets\Scripts\EyeThreadReader.cs" />
      <Compile Include="Assets\Scripts\EyeTracker.cs" />
      <Compile Include="Assets\Scripts\FollowCameraOrientation.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\LSL.cs" />
+     <Compile Include="Assets\Scripts\LSLEventMarker.cs" />
+     <Compile Include="Assets\Scripts\LSLEyeThreaderMarker.cs" />
      <Compile Include="Assets\Scripts\LSLInterface.cs" />
-     <Compile Include="Assets\Scripts\LSLMarkerScript.cs" />
      <Compile Include="Assets\Scripts\LSLPlayerLogger.cs" />
      <Compile Include="Assets\Scripts\PlayerMove.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\RotationMovement.cs" />
      <Compile Include="Assets\Scripts\SwitchOnClick.cs" />
      <Compile Include="Assets\Scripts\Teleporter.cs" />
-     <Compile Include="Assets\Scripts\ThreadReader.cs" />
      <Compile Include="Assets\Scripts\X_axisMovement.cs" />
      <Compile Include="Assets\Scripts\Y_axisMovement.cs" />
      <Compile Include="Assets\SimplePoly - Town Pack\DemoScene\FlyCamera.cs" />

@@ -5,6 +5,14 @@ using UnityEngine;
 public class movement_manager : MonoBehaviour
 {
 
+    public Vector3 translationAcceleration;
+    public float rotationAcceleration;
+    private Vector3 lastPosition;
+    private Vector3 lastTranlsationSpeed;
+    
+    private float lastAngle;
+    private float lastRotationSpeed;
+
     public bool xTranslation = false;
     public bool zTranslation = false;
     public bool yRotation = false;
@@ -47,6 +55,9 @@ public class movement_manager : MonoBehaviour
 
         targetLane = rightLane;
         targetAngleIndex = 0;
+        //Acceleration code 
+        lastPosition = transform.position;
+        lastAngle = transform.localEulerAngles.y;
     }
 
     // Update is called once per frame
@@ -83,8 +94,37 @@ public class movement_manager : MonoBehaviour
             }
         }
 
+        //acceleration code 
+        Vector3 deltaP = transform.position - lastPosition;
+        Vector3 deltaV = (deltaP/Time.deltaTime) - lastTranlsationSpeed;
+        translationAcceleration = (deltaV / Time.deltaTime);
+        lastPosition = transform.position;
+        lastTranlsationSpeed = deltaP/Time.deltaTime;
 
-        
+        float deltaT = transform.localEulerAngles.y - lastAngle;
+        float deltaTP = (deltaT/Time.deltaTime) - lastRotationSpeed;
+        rotationAcceleration = (deltaTP / Time.deltaTime);
+        lastAngle = transform.localEulerAngles.y;
+        lastRotationSpeed = deltaT/Time.deltaTime;
+
+        if(translationAcceleration.x>1f){
+            Debug.Log("x acc: "+ translationAcceleration.x);
+        }
+        if(translationAcceleration.z> 1f){
+            
+            Debug.Log("z acc: "+ translationAcceleration.z);
+
+        }
+        if(Mathf.Abs(rotationAcceleration)>1f){
+            
+            Debug.Log("y rot: "+ rotationAcceleration);
+
+        }
+
+
+
+
+
     }
 
     private void OnTriggerEnter(Collider col){

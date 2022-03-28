@@ -8,12 +8,9 @@ using static DebugLineDrawing;
 using static EyeTracker;
 using UnityEngine.EventSystems;
 
-public class ThreadReader : MonoBehaviour
+public class EyeThreadReader : MonoBehaviour
 {
-    private EyeThreader DataThread = null;
-
-    public Text ShowBlinkValues;
-    public Image gazeImage;
+    private LSLEyeThreaderMarker DataThread = null;
 
     public int TARGET_FRAMERATE = 60;
 
@@ -27,7 +24,7 @@ public class ThreadReader : MonoBehaviour
     {
         Application.targetFrameRate = TARGET_FRAMERATE;
 
-        DataThread = FindObjectOfType<EyeThreader>();
+        DataThread = FindObjectOfType<LSLEyeThreaderMarker>();
         if (DataThread == null) return;
 
         leftCounter = new int[3];
@@ -56,10 +53,6 @@ public class ThreadReader : MonoBehaviour
                 TreatBlinkData(bd);
             }
         }
-
-        if (ShowBlinkValues != null)
-            ShowBlinkValues.text = "Left Eye Blinks: " + leftCounter[0] + " | " + leftCounter[1] + " | " + leftCounter[2] + "\n" 
-                + "Right Eye Blinks: " + rightCounter[0] + " | " + rightCounter[1] + " | " + rightCounter[2];
 
     }
 
@@ -121,32 +114,7 @@ public class ThreadReader : MonoBehaviour
 
         gazeDirection = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles) * gazeDirection;
 
-        Ray aux = new Ray(Camera.main.transform.position, gazeDirection);
-        float dist = Vector3.Distance(aux.origin, gazeImage.canvas.transform.position);
-
-        // This is the point on the actual screen.
-        Vector3 distPoint = aux.GetPoint(dist);
-
-
-        //Debug.DrawRay(Camera.main.transform.position, distPoint, Color.red, 20f);
-        gazeImage.rectTransform.position = new Vector3(distPoint.x, distPoint.y, distPoint.z);
+    
     }
 
-
-    void FocusDataTest()
-    {
-        if(SRanipal_Eye.GetGazeRay(GazeIndex.COMBINE, out Ray ray))
-        {
-            Ray aux = new Ray(Camera.main.transform.position, ray.direction);
-            RectTransform canvasTransf = gazeImage.canvas.GetComponent<RectTransform>();
-
-
-            float dist = Vector3.Distance(Camera.main.transform.position, gazeImage.canvas.transform.position);
-
-            Vector3 pt = aux.GetPoint(dist);//gazeImage.canvas.planeDistance);
-            
-
-            gazeImage.rectTransform.position = new Vector3(-1 * pt.x, pt.y, pt.z);
-        }
-    }
 }

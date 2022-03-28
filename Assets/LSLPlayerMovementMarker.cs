@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LSL;
 
-public class LSLPlayerLogger : MonoBehaviour
+public class LSLPlayerMovementMarker : MonoBehaviour
 {
     
     private float[] PlayerInfoData;
@@ -14,12 +14,12 @@ public class LSLPlayerLogger : MonoBehaviour
     // LabStreamingLayer Integration -- Gaze and Pupil Streamer
     private const string unique_source_id = "3469CD84-E3A4-4C1C-84F1-8003485B5200";
 
-    public string lslStreamName = "Player_Headset_Movement_60Hz";
+    public string lslStreamName = "Player_Game_Movement";
     public string lslStreamType = "Player_Data";
 
     private liblsl.StreamInfo lslStreamInfo;
     private liblsl.StreamOutlet lslOutlet;
-    private const int lslChannelCount = 6;
+    private const int lslChannelCount = 3;
 
     private double nominal_srate = 60;
     private const liblsl.channel_format_t lslChannelFormat = liblsl.channel_format_t.cf_float32;
@@ -37,9 +37,6 @@ public class LSLPlayerLogger : MonoBehaviour
         PlayerInfoData[0] = Camera.main.transform.localPosition.x;
         PlayerInfoData[1] = Camera.main.transform.localPosition.y;
         PlayerInfoData[2] = Camera.main.transform.localPosition.z;
-        PlayerInfoData[3] = Camera.main.transform.rotation.eulerAngles.x;
-        PlayerInfoData[4] = Camera.main.transform.rotation.eulerAngles.y;
-        PlayerInfoData[5] = Camera.main.transform.rotation.eulerAngles.z;
         lslOutlet.push_sample(PlayerInfoData);
 
         PlayerInfoData = new float[lslChannelCount];

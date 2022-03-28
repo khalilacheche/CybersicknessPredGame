@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LSL;
 
-public class LSLMarkerScript : MonoBehaviour
+public class LSLEventMarker : MonoBehaviour
 {
     private const string unique_source_id = "4EE36484-D748-42F7-8A05-A6B86FF09F52";
 
