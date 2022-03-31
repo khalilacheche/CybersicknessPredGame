@@ -15,6 +15,10 @@ TagManager:
   - Obstacle
   - Fire
   - Water
+  - turn
+  - turnaround
+  - carFront
+  - carBehind
   layers:
   - Default
   - TransparentFX
@@ -30,10 +34,10 @@ TagManager:
   - Fire
   - GameManager
   - Obstacle
-  - car Behind
-  - car front
-  - 
-  - 
+  - carBehind
+  - carFront
+  - turn
+  - turnaround
   - 
   - 
   - 

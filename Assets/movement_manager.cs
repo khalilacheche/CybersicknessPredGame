@@ -10,6 +10,8 @@ public class movement_manager : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 lastTranlsationSpeed;
     
+    private Vector3 forwardDirection;
+    
     private float lastAngle;
     private float lastRotationSpeed;
 
@@ -48,6 +50,8 @@ public class movement_manager : MonoBehaviour
     private GameManager gm;
     // Start is called before the first frame update
     void Start(){
+        forwardDirection = transform.forward;
+        
         gm = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
         if (yRotation && !xTranslation && !zTranslation){
             transform.position = new Vector3(-108,-0.89f, 179.4f);
@@ -120,17 +124,18 @@ public class movement_manager : MonoBehaviour
             Debug.Log("y rot: "+ rotationAcceleration);
 
         }
-
-
-
-
-
     }
 
     private void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == LayerMask.NameToLayer("Obstacle")){
             switchLane(); 
         }
+        if(col.gameObject.layer== LayerMask.NameToLayer("turn")){
+            rotateAxis();    
+        }
+    }
+    private void rotateAxis(){
+        forwardDirection = Quaternion.Euler(0,-90.0f,0)* forwardDirection;
     }
     private void switchLane(){
         //value of targetLane is gonna be only the valueof rightLane or leftLane, so nit's okayto perform float equality

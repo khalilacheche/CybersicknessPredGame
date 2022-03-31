@@ -19,7 +19,7 @@ public class LSLPlayerMovementMarker : MonoBehaviour
 
     private liblsl.StreamInfo lslStreamInfo;
     private liblsl.StreamOutlet lslOutlet;
-    private const int lslChannelCount = 3;
+    private const int lslChannelCount = 6;
 
     private double nominal_srate = 60;
     private const liblsl.channel_format_t lslChannelFormat = liblsl.channel_format_t.cf_float32;
@@ -33,13 +33,14 @@ public class LSLPlayerMovementMarker : MonoBehaviour
 
     private void FixedUpdate()
     {
+        /*
         // Get Player Data
         PlayerInfoData[0] = Camera.main.transform.localPosition.x;
         PlayerInfoData[1] = Camera.main.transform.localPosition.y;
         PlayerInfoData[2] = Camera.main.transform.localPosition.z;
         lslOutlet.push_sample(PlayerInfoData);
 
-        PlayerInfoData = new float[lslChannelCount];
+        PlayerInfoData = new float[lslChannelCount];*/
     }
 
     liblsl.StreamOutlet KickStartPlayerLSLStream()

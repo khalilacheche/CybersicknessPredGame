@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     private int score;
 
     private GameObject[] obstacles;
+    private GameObject[] turns;
+    private GameObject[] turnarounds;
+
     private  Fire [] fires;
     private Fire currentFire;
     private Fire previousFire;
@@ -28,6 +31,9 @@ public class GameManager : MonoBehaviour
         previousFire = null;
         player = GameObject.FindGameObjectWithTag("Player");
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        turnarounds = GameObject.FindGameObjectsWithTag("turnaround");
+        turns = GameObject.FindGameObjectsWithTag("turn");
+
         GameObject[] firesAsGO = GameObject.FindGameObjectsWithTag("Fire");
         fires = new Fire [firesAsGO.Length];
         //numActiveFires = fires.Length;
@@ -38,24 +44,35 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
-        if(player.GetComponent<movement_manager>().zTranslation){
-            setAllObstacles(true);
-        }else{
-            setAllObstacles(false);
-
+        switch (player.GetComponent<MovementManager>().getExperience()){
+            case "XZo":
+            case "XZR":{
+                setTurns(true);
+                setTurnarounds(false);
+                setAllObstacles(true);
+                break;
+            }
+            default:{
+                setTurns(false);
+                setTurnarounds(true);
+                setAllObstacles(false);
+                break;
+            }
         }
-        /*
-        if(!started){
-            started = true;
-            if(fires.Length>0)
-            {fires[0].reset();}
-
-        }*/
-        
     }
     private void setAllObstacles(bool value){
         foreach(GameObject obstacle in obstacles){
             obstacle.SetActive(value);
+        }
+    }
+    private void setTurns(bool value){
+        foreach(GameObject turn in turns){
+            turn.SetActive(value);
+        }
+    }
+    private void setTurnarounds(bool value){
+        foreach(GameObject turnaround in turnarounds){
+            turnaround.SetActive(value);
         }
     }
     public void notifyDeadFire(){
