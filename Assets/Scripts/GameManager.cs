@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         currentFire = null;
         previousFire = null;
         player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<MovementManager>().startMoving();
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         turnarounds = GameObject.FindGameObjectsWithTag("turnaround");
         turns = GameObject.FindGameObjectsWithTag("turn");

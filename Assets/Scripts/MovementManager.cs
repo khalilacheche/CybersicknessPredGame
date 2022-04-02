@@ -169,8 +169,8 @@ public class MovementManager : MonoBehaviour
     private void rotationMovement(){
         float diff = angles[targetAngleIndex] - transform.localEulerAngles.y;
             if(Mathf.Abs(diff) > yThreshold){
-                
                 float rotationValue =  rotationSpeed * Mathf.Sign(diff)  * Time.deltaTime * ( diff > 180 ? -1 : 1);
+                Debug.Log(rotationValue);
                 transform.Rotate(Vector3.up *rotationValue);
             }
     }
