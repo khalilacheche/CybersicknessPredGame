@@ -9,14 +9,21 @@ public class ScoreManager : MonoBehaviour
     public Slider fireSlider;
     private GameManager gm;
     // Start is called before the first frame update
-    void Start(){
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    void OnEnable(){
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "score: " + gm.getScore().ToString();
-        fireSlider.value = gm.getFireIntensity();
+        if(gm != null){
+            scoreText.text = "score: " + gm.getScore().ToString();
+            fireSlider.value = gm.getFireIntensity();
+        }else{
+            GameObject gmGO =GameObject.Find("GameManager");
+            if(gmGO != null){
+                gm = gmGO.GetComponent<GameManager>();
+            } 
+
+        }
     }
 }

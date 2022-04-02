@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovementManager : MonoBehaviour
 {
 
+    private bool canMove = false;
     public Vector3 translationAcceleration;
     public float rotationAcceleration;
     private Vector3 lastPosition;
@@ -65,19 +66,27 @@ public class MovementManager : MonoBehaviour
 
     private GameManager gm;
     // Start is called before the first frame update
-    void Start(){
+    void OnEnable(){
         forwardDirection = transform.forward;
-        gm = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
-        determineExperience();        
-        initializePos();
+        determineExperience();
+        initializePos();        
         targetLane = rightLane;
         targetAngleIndex = 0;
+        canMove = false;
     }
 
     // Update is called once per frame
     void FixedUpdate(){
+        if(gm == null){
+            GameObject gmGO =GameObject.Find("GameManager");
+            if(gmGO != null){
+                gm = gmGO.GetComponent<GameManager>();
+            }
+        } 
 
-        updateMov();
+        if(canMove){
+            updateMov();
+        }
     }
 
     private void OnTriggerEnter(Collider col){
@@ -257,5 +266,8 @@ public class MovementManager : MonoBehaviour
     }
     public string getExperience(){
         return experience;
+    }
+    public void startMoving(){
+        canMove = true;
     }
 }

@@ -19,6 +19,7 @@ TagManager:
   - turnaround
   - carFront
   - carBehind
+  - WaterHose
   layers:
   - Default
   - TransparentFX

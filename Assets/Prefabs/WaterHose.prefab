@@ -47,7 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticleTransform: {fileID: 3449921579758220972}
   lineColor: {r: 0, g: 0.88235295, b: 1, a: 1}
+  waterFlowPersecond: 1.66
   hand: {fileID: 0}
+  splash: {fileID: 0}
   arcDistance: 15
   traceLayerMask:
     serializedVersion: 2
@@ -70,19 +72,6 @@ MonoBehaviour:
   segmentBreak: 0.025
   arcSpeed: 1
   material: {fileID: 2100000, guid: 140bd0e59d9bee94f9f0284c9eef5b32, type: 2}
---- !u!65 &3449921578141004696
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3450632516983083360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 3.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3449921579670494263
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +182,19 @@ Transform:
   m_Father: {fileID: 3449921578087027050}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3449921578141004696
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450632516983083360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5, z: 3.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3449921578573705518
 PrefabInstance:
   m_ObjectHideFlags: 0

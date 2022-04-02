@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5423737671979681854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5423737671979681853}
+  - component: {fileID: 5423737671979681855}
+  - component: {fileID: 5423737671979681843}
+  - component: {fileID: 5423737671979681842}
+  - component: {fileID: 5423737671979681852}
+  m_Layer: 0
+  m_Name: Data Tracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5423737671979681853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423737671979681854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 43.26, y: -3.6532664, z: 181.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5423737671979681855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423737671979681854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be0a9998c6903c47b65f9e620863ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lslStreamName: PlayerInfo_60Hz
+  lslStreamType: Player_Data
+--- !u!114 &5423737671979681843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423737671979681854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a280b1ea8170847b51dc2376c0ab23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendValuesToMainThread: 1
+  m_MinimumBlinkFrames: 6
+  m_SmallBlinkFrames: 36
+  m_MediumBlinkFrames: 84
+  frameCounter: 0
+  lslStreamName: Unity_EyeGazeAndPupil_120Hz
+  lslStreamType: Eye_Gaze_Data
+  lslStreamName_Blink: Unity_EyeOpenessMarker
+  lslStreamType_Blink: Eye_Openess_Markers
+--- !u!114 &5423737671979681842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423737671979681854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c42dfaead1562a4a8c7c8df55d2f365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lslStreamName: Unity_GameMarkers
+  lslStreamType: LSL_Marker_Strings
+--- !u!114 &5423737671979681852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423737671979681854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca37e62522958441872b9e2fa864935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lslStreamName: Player_Game_Movement
+  lslStreamType: Player_Data

@@ -55,15 +55,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_buggy.cs" />
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_default.cs" />
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_mixedreality.cs" />
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_platformer.cs" />
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_StandardControl.cs" />
-     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Actions.cs" />
-     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
-     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Initialization.cs" />
-     <None Include="Assets\SteamVR_Input\SteamVR_Actions.asmdef" />
+     <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_buggy.cs" />
+     <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_default.cs" />
+     <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_mixedreality.cs" />
+     <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_platformer.cs" />
+     <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_StandardControl.cs" />
+     <Compile Include="Assets\Resources\SteamVR_Input\SteamVR_Input_Actions.cs" />
+     <Compile Include="Assets\Resources\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
+     <Compile Include="Assets\Resources\SteamVR_Input\SteamVR_Input_Initialization.cs" />
+     <None Include="Assets\Resources\SteamVR_Input\SteamVR_Actions.asmdef" />
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/TP/Desktop/Khalil_Raed/CybersicknessPredGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -260,7 +260,7 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Valve.Newtonsoft.Json">
- <HintPath>C:/Users/TP/Desktop/Khalil_Raed/CybersicknessPredGame/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/TP/Desktop/Khalil_Raed/CybersicknessPredGame/Assets/Resources/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Users/TP/Desktop/Khalil_Raed/CybersicknessPredGame/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
