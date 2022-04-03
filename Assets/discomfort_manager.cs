@@ -54,7 +54,9 @@ public class discomfort_manager : MonoBehaviour
     {
 
         trackpad = SteamVR_Actions._default.Move.GetAxis(Hand).x;
-        discomfort += trackpad * 0.1f;
+        if(SteamVR_Actions._default.Move.GetAxis(Hand).y<0.5f){
+            discomfort += trackpad * 0.1f;
+        }
         discomfort = Mathf.Clamp(discomfort,0,MAX_DISCOMFORT);
         slider.value = discomfort/MAX_DISCOMFORT;
         text.text  = ""+(int)discomfort; 

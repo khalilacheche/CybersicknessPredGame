@@ -62,8 +62,8 @@ public class TutorialFire : MonoBehaviour
             return;
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("Water")){
-            health -= 0.2f;
-            if(health <= healthThreshhold){
+            health -= 1f;
+            if(health <= 0){
                 die();
             }
         }
