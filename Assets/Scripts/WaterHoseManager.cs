@@ -16,7 +16,10 @@ public class WaterHoseManager : MonoBehaviour
 	public float waterFlowPersecond = 1.66f;
     private LineRenderer pointerLineRenderer;
 
-    public GameObject hand;
+    private GameObject hand;
+
+	public GameObject LeftHand;
+	public GameObject RightHand;
 	public  GameObject splash;
     public float arcDistance = 10.0f;
     public LayerMask traceLayerMask;
@@ -35,15 +38,15 @@ public class WaterHoseManager : MonoBehaviour
         //splash = GameObject.FindGameObjectWithTag("Water");
         waterArc = GetComponent<WaterArc>();
         player = Valve.VR.InteractionSystem.Player.instance;
-        pointerStartTransform = hand.transform;
 		waterConsumption = 0;
         
     }
-    
     // Update is called once per frame
     void Update()
     {
-        
+		
+		hand = PlayerParameters.isRightHanded ? RightHand : LeftHand;
+        pointerStartTransform = hand.transform;
         if(pointerLineRenderer == null){
             pointerLineRenderer = GetComponentInChildren<LineRenderer>();
         }else {

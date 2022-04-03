@@ -8,37 +8,69 @@ public class SwitchOnClick : MonoBehaviour
     public enum SwitchType {
         Click, Hold
     }
-    public bool initialState;
     public SwitchType switchType; 
     private bool state;
     public SteamVR_Input_Sources hand;
     public GameObject toSwitch;
-    
+    public bool inverse;
+    private bool switchEnabled;
+    private bool buttonState =false;
     // Start is called before the first frame update
     void Start()
     {
-        state = initialState;
+        
+        state = false;
         toSwitch.SetActive(state);
-        SteamVR_Actions._default.GrabPinch.AddOnStateDownListener(handleDown, hand);
-        SteamVR_Actions._default.GrabPinch.AddOnStateUpListener(handleUp,hand);
+        switchEnabled = true;
+        SteamVR_Actions._default.GrabPinch.AddOnStateDownListener(handleDown, SteamVR_Input_Sources.LeftHand);
+        SteamVR_Actions._default.GrabPinch.AddOnStateUpListener(handleUp,SteamVR_Input_Sources.LeftHand);
+        SteamVR_Actions._default.GrabPinch.AddOnStateDownListener(handleDown, SteamVR_Input_Sources.RightHand);
+        SteamVR_Actions._default.GrabPinch.AddOnStateUpListener(handleUp,SteamVR_Input_Sources.RightHand);
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(switchType == SwitchType.Hold){
+            bool newValue = switchEnabled & (buttonState ^ inverse);
+            if(newValue != toSwitch.activeSelf){
+                toSwitch.SetActive(newValue);
+            }
+        }
         
     }
     public void handleDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource){
-        state = !state;
-        toSwitch.SetActive(state);
-    }
-    public void handleUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource){
-        if(switchType == SwitchType.Click){
+        
+        hand = PlayerParameters.isRightHanded ? SteamVR_Input_Sources.RightHand : SteamVR_Input_Sources.LeftHand; 
+
+        if(fromSource != hand){
             return;
         }
-        state =!state;
-        toSwitch.SetActive(state);
+        buttonState = true;
+        if(!switchEnabled){
+            return;
+        }
+        state = !state;
+        if(switchType == SwitchType.Click){
+            toSwitch.SetActive(state);
 
+        }
+    
+    }
+    public void handleUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource){
+        hand = PlayerParameters.isRightHanded ? SteamVR_Input_Sources.RightHand : SteamVR_Input_Sources.LeftHand; 
+        if(fromSource != hand){
+            return;
+        }
+        buttonState = false;
+        
+
+    }
+    public void enableSwitch(){
+        switchEnabled = true;
+    }
+    public void disableSwitch(){
+        switchEnabled = false;
     }
 }

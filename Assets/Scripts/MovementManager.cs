@@ -69,10 +69,9 @@ public class MovementManager : MonoBehaviour
     void OnEnable(){
         forwardDirection = transform.forward;
         determineExperience();
-        initializePos();        
+        //initializePos();        
         targetLane = rightLane;
         targetAngleIndex = 0;
-        canMove = false;
     }
 
     // Update is called once per frame
@@ -170,7 +169,6 @@ public class MovementManager : MonoBehaviour
         float diff = angles[targetAngleIndex] - transform.localEulerAngles.y;
             if(Mathf.Abs(diff) > yThreshold){
                 float rotationValue =  rotationSpeed * Mathf.Sign(diff)  * Time.deltaTime * ( diff > 180 ? -1 : 1);
-                Debug.Log(rotationValue);
                 transform.Rotate(Vector3.up *rotationValue);
             }
     }
@@ -263,6 +261,12 @@ public class MovementManager : MonoBehaviour
                 break;
             }
         }
+    }
+    public void initializeExperimentPosition(){
+        initializePos();
+    }
+    public void setPosition(Vector3 position){
+        transform.position = position;
     }
     public string getExperience(){
         return experience;

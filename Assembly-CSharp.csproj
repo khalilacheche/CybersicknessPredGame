@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,6 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Action.cs" />
+     <Compile Include="Assets\discomfort_manager.cs" />
+     <Compile Include="Assets\DiscomfortGUIAction.cs" />
+     <Compile Include="Assets\FireAction.cs" />
+     <Compile Include="Assets\PlayerParameters.cs" />
      <Compile Include="Assets\Resources\SimplePoly - Town Pack\DemoScene\FlyCamera.cs" />
      <Compile Include="Assets\Resources\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
      <Compile Include="Assets\Resources\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
@@ -89,13 +92,13 @@
      <Compile Include="Assets\Scripts\LSLInterface.cs" />
      <Compile Include="Assets\Scripts\LSLPlayerLogger.cs" />
      <Compile Include="Assets\Scripts\LSLPlayerMovementMarker.cs" />
-     <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\Scripts\movement_manager.cs" />
      <Compile Include="Assets\Scripts\MovementManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMove.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\RotationMovement.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\Scripts\SetupManager.cs" />
      <Compile Include="Assets\Scripts\SwitchOnClick.cs" />
      <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\WaterArc.cs" />
@@ -103,6 +106,17 @@
      <Compile Include="Assets\Scripts\WaterHoseManager.cs" />
      <Compile Include="Assets\Scripts\X_axisMovement.cs" />
      <Compile Include="Assets\Scripts\Y_axisMovement.cs" />
+     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_buggy.cs" />
+     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_default.cs" />
+     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_mixedreality.cs" />
+     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_platformer.cs" />
+     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_StandardControl.cs" />
+     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Actions.cs" />
+     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
+     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Initialization.cs" />
+     <Compile Include="Assets\TextAction.cs" />
+     <Compile Include="Assets\TutorialFire.cs" />
+     <Compile Include="Assets\TutorialManager.cs" />
      <None Include="Assets\Resources\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\Resources\ViveSR\Shaders\DartBoardShader.shader" />
      <None Include="Assets\Resources\POLYGON city pack\Read_me.txt" />
@@ -684,10 +698,6 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SteamVR_Actions.csproj">
-      <Project>{8F3209D5-C304-109E-8C23-F17F805112B8}</Project>
-      <Name>SteamVR_Actions</Name>
-    </ProjectReference>
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
       <Project>{58B85CB6-6600-28A1-0922-0E963F89C4DA}</Project>
       <Name>SteamVR_Input_Editor</Name>
@@ -703,6 +713,10 @@
     <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
       <Project>{CDA567D1-6469-FCE5-7994-B89F4B04200E}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Actions.csproj">
+      <Project>{8F3209D5-C304-109E-8C23-F17F805112B8}</Project>
+      <Name>SteamVR_Actions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

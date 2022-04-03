@@ -14,9 +14,8 @@ public class GameManager : MonoBehaviour
     private Fire currentFire;
     private Fire previousFire;
     private int numActiveFires = 0;
+    private discomfort_manager discommforGUIManager;
 
-    public float laneStart = 50;
-    public float laneEnd = 180;
 
 
     private GameObject player;
@@ -26,15 +25,16 @@ public class GameManager : MonoBehaviour
     private bool started = false;
     void Start(){
         score = 0;
-        
+        InvokeRepeating("PromptUser", 10, 20);
         currentFire = null;
         previousFire = null;
         player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<MovementManager>().initializeExperimentPosition();
         player.GetComponent<MovementManager>().startMoving();
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         turnarounds = GameObject.FindGameObjectsWithTag("turnaround");
         turns = GameObject.FindGameObjectsWithTag("turn");
-
+        discommforGUIManager = player.GetComponent<PlayerParameters>().discomfort_Manager;
         GameObject[] firesAsGO = GameObject.FindGameObjectsWithTag("Fire");
         fires = new Fire [firesAsGO.Length];
         //numActiveFires = fires.Length;
@@ -42,6 +42,14 @@ public class GameManager : MonoBehaviour
         {
             fires[i] = firesAsGO[i].GetComponent<Fire>();
         }
+    }
+
+    private void PromptUser(){
+        discommforGUIManager.enableDiscomfortGUI(userEndedDiscomfortHandler);
+    }
+
+    public void userEndedDiscomfortHandler(){
+        Debug.Log(discommforGUIManager.getDiscomfort());
     }
 
     void Update(){
@@ -106,23 +114,5 @@ public class GameManager : MonoBehaviour
     public float getFireIntensity(){
         return ((float)numActiveFires)/fires.Length;
     }
-    public void randomizeObstaclePositions(){
-
-        ArrayList generated = new ArrayList();
-        foreach (GameObject obs in obstacles){
-            float newX = laneStart;
-            bool found = false;
-            //newX = Random.Range(laneStart,laneEnd);
-            do {
-                newX = Random.Range(laneStart,laneEnd);
-                found = true;
-                foreach (float prev in generated)
-                {
-                    found = found && (Mathf.Abs(newX - prev) > MIN_DISTANCE_BETWEEN_CARS);
-                }
-            }while(!found) ;
-            generated.Add(newX);
-            obs.transform.position = new Vector3 (newX,obs.transform.position.y,obs.transform.position.z);
-        }
-    }
+    
 }

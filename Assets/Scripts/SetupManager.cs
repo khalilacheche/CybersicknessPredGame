@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ViveSR.anipal.Eye;
-public class Manager : MonoBehaviour
+public class SetupManager : MonoBehaviour
 {
    private bool calibrationSuccess = false;
+   [Header("Calibration")]
    public bool startCalibration = false;
-   public bool setupComplete = false;
+   
    public float timer = 10;
    public TextMesh text;
-
+   [Header("Don't Destroy On Load")]
    public GameObject SRAnipalObject;
    public GameObject DataTrackerObject;
    public GameObject Player;
+    [Header("Skip Tutorial")]
+   public bool skipTutorial = false;
+
+   [Header("Setup Complete")]
+   public bool setupComplete = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +30,7 @@ public class Manager : MonoBehaviour
         {
             // Do Nothing
         }
+        Player.GetComponent<MovementManager>().setPosition(Vector3.zero);
 
         calibrationSuccess = false;
     }
@@ -66,6 +73,11 @@ public class Manager : MonoBehaviour
         Camera.main.clearFlags = CameraClearFlags.Skybox;
         Camera.main.backgroundColor = Color.clear;
         // Load New Scene
-        SceneManager.LoadScene(1);
+        if(skipTutorial){
+            SceneManager.LoadScene(2);
+
+        }else{
+            SceneManager.LoadScene(1);
+        }
     }
 }
