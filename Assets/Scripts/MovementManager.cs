@@ -56,7 +56,7 @@ public class MovementManager : MonoBehaviour
     Vector3[] leftLanes = new Vector3[4];
     Vector3[] rightLanes = new Vector3[4];
     public Vector3 targetLane;
-    private float zThreshold = 0.1f;
+    public float translationThreshold = 0.05f;
 
     [Header("Y rotation parameters")]
 
@@ -152,6 +152,7 @@ public class MovementManager : MonoBehaviour
             accelerate(5);
     }
     private void moveForward(){
+        canDepass();
         transform.position += forwardDirection * Time.deltaTime * xSpeed * xDirection;
     }
     private void moveSideways()
@@ -159,12 +160,8 @@ public class MovementManager : MonoBehaviour
         axisSelector = new Vector3(Mathf.Abs(leftDirection.x), Mathf.Abs(leftDirection.y), Mathf.Abs(leftDirection.z));
 
 
-        if (Mathf.Abs(Vector3.Dot(transform.position, axisSelector) - Vector3.Dot(axisSelector, targetLane)) > zThreshold)
+        if (Mathf.Abs(Vector3.Dot(transform.position, axisSelector) - Vector3.Dot(axisSelector, targetLane)) > translationThreshold)
         {
-            Debug.Log(Mathf.Abs(Vector3.Dot(transform.position, axisSelector) - Vector3.Dot(axisSelector, targetLane)));
-            Debug.Log(turnNumber);
-            Debug.Log(targetLane);
-
             transform.position += axisSelector * Time.deltaTime * zSpeed * Mathf.Sign(Vector3.Dot(axisSelector, targetLane) - Vector3.Dot(axisSelector,transform.position));
         }
     }
@@ -309,5 +306,29 @@ public class MovementManager : MonoBehaviour
     }
     public void startMoving(){
         canMove = true;
+    }
+    public void canDepass()
+    {
+        RaycastHit carHit;
+        if (Physics.Raycast(transform.position, forwardDirection, out carHit, 20.0f, LayerMask.GetMask("Obstacle")))
+        {
+            
+            RaycastHit turnHit;
+            if (Physics.Raycast(transform.position, forwardDirection, out turnHit, 100.0f, LayerMask.GetMask("noDepassingZone")))
+            {
+                Debug.Log(turnHit.distance + "-------------" + carHit.distance);
+                //if (2 * carHit.distance > turnHit.distance)
+                {
+                    xSpeed = 7;
+                    Debug.Log(xSpeed);
+                    return;
+                }
+            }
+        }
+        if (xSpeed <= 10)
+        {
+            xSpeed = 10;
+        }
+        Debug.Log(xSpeed);
     }
 }
