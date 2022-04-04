@@ -11,13 +11,17 @@ public class MovementManager : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 lastTranlsationSpeed;
     
-    private Vector3 forwardDirection;
-    
+    public Vector3 forwardDirection;
+    public Vector3 leftDirection;
+    private Vector3 leftLane;
+    private Vector3 rightLane;
+    private int turnNumber;
+
     private float lastAngle;
     private float lastRotationSpeed;
     private float switchTime = 0;
     public float timeBetweenAccelerations= 5;
-
+    public Vector3 axisSelector;
 
 
     public bool xTranslation = false;
@@ -46,10 +50,13 @@ public class MovementManager : MonoBehaviour
     [Header("Z translation Parameters")]
 
     public float zSpeed = 10;
-    public float leftLane = 179.14f;
-    public float rightLane = 187.43f;
-    private float targetLane;
-    private float zThreshold = 0.05f;
+    public Transform[] leftLanesT = new Transform[4];
+    public Transform[] rightLanesT = new Transform[4];
+
+    Vector3[] leftLanes = new Vector3[4];
+    Vector3[] rightLanes = new Vector3[4];
+    public Vector3 targetLane;
+    public float translationThreshold = 0.05f;
 
     [Header("Y rotation parameters")]
 
@@ -68,6 +75,8 @@ public class MovementManager : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable(){
         forwardDirection = transform.forward;
+        leftDirection = new Vector3(forwardDirection.z, forwardDirection.y, -forwardDirection.x);
+        initializeLanes();
         determineExperience();
         //initializePos();        
         targetLane = rightLane;
@@ -101,17 +110,15 @@ public class MovementManager : MonoBehaviour
         if(col.gameObject.layer== LayerMask.NameToLayer("carBehind")){
             switchLane();
             accelerate(10);
-            rotateAxis();
         }
         
         if(col.gameObject.layer== LayerMask.NameToLayer("carFront")){
             switchLane();
             accelerate(-10);
-            rotateAxis();
         }
     }
     private void switchLane(){
-        //value of targetLane is gonna be only the valueof rightLane or leftLane, so nit's okayto perform float equality
+        //value of targetLane is gonna be only the valueof rightLane or leftLane, so it's okay to perform float equality
         if(targetLane == rightLane){
             targetLane = leftLane;
         }else{
@@ -121,12 +128,16 @@ public class MovementManager : MonoBehaviour
     }
     private void rotateAxis(){
         forwardDirection = Quaternion.Euler(0,-90,0) * forwardDirection;
+        leftDirection = Quaternion.Euler(0, -90, 0) * leftDirection;
+        turnNumber= (turnNumber+1) % 4;
+        leftLane = leftLanesT[turnNumber].position;
+        rightLane = rightLanesT[turnNumber].position;
+        targetLane = rightLane;
     }
-    
+
 
     private void switchAngle(){
         targetAngleIndex = (targetAngleIndex + Random.Range(1,angles.Length)) % angles.Length;
-                        Debug.Log("xspeed =" + xSpeed);
 
     
     }
@@ -140,7 +151,18 @@ public class MovementManager : MonoBehaviour
             accelerate(5);
     }
     private void moveForward(){
+        canDepass();
         transform.position += forwardDirection * Time.deltaTime * xSpeed * xDirection;
+    }
+    private void moveSideways()
+    {
+        axisSelector = new Vector3(Mathf.Abs(leftDirection.x), Mathf.Abs(leftDirection.y), Mathf.Abs(leftDirection.z));
+
+
+        if (Mathf.Abs(Vector3.Dot(transform.position, axisSelector) - Vector3.Dot(axisSelector, targetLane)) > translationThreshold)
+        {
+            transform.position += axisSelector * Time.deltaTime * zSpeed * Mathf.Sign(Vector3.Dot(axisSelector, targetLane) - Vector3.Dot(axisSelector,transform.position));
+        }
     }
     private void determineExperience(){
         
@@ -222,10 +244,12 @@ public class MovementManager : MonoBehaviour
             }
             case "XZo":{
                 moveForward();
+                moveSideways();
                 break; 
             }
             case "XZR":{
                 moveForward();
+                moveSideways();    
                 rotationMovement();
                 break; 
             }
@@ -268,10 +292,48 @@ public class MovementManager : MonoBehaviour
     public void setPosition(Vector3 position){
         transform.position = position;
     }
+    private void initializeLanes()
+    {
+        leftLanes[0]= new Vector3(0, 0, 179.14f);
+        rightLanes[0] = new Vector3(0, 0, 187.43f);
+        leftLanes[1] = new Vector3(-125, 0, 0);
+        rightLanes[1] = new Vector3(-138, 0, 0);
+        leftLanes[2] = new Vector3(0, 0, -275);
+        rightLanes[2] = new Vector3(0, 0, -262);
+        leftLanes[3] = new Vector3(143, 0, 0);
+        rightLanes[3] = new Vector3(156, 0, 0);
+        leftLane = leftLanes[0];
+        rightLane = rightLanes[0];
+        turnNumber = 0;
+    }
     public string getExperience(){
         return experience;
     }
     public void startMoving(){
         canMove = true;
+    }
+    public void canDepass()
+    {
+        RaycastHit carHit;
+        if (Physics.Raycast(transform.position, forwardDirection, out carHit, 20.0f, LayerMask.GetMask("Obstacle")))
+        {
+            
+            RaycastHit turnHit;
+            if (Physics.Raycast(transform.position, forwardDirection, out turnHit, 100.0f, LayerMask.GetMask("noDepassingZone")))
+            {
+                Debug.Log(turnHit.distance + "-------------" + carHit.distance);
+                //if (2 * carHit.distance > turnHit.distance)
+                {
+                    xSpeed = 7;
+                    Debug.Log(xSpeed);
+                    return;
+                }
+            }
+        }
+        if (xSpeed <= 10)
+        {
+            xSpeed = 10;
+        }
+        Debug.Log(xSpeed);
     }
 }
