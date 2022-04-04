@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -9026,6 +9026,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0ae0b33491dc8408632e1275bee004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnNumber: 0
+  rightLanesT:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  carSpeed: 10
 --- !u!65 &310482121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30298,6 +30305,7 @@ MonoBehaviour:
   healthThreshhold: 10
   initialFireRate: 50
   initialSmokeRate: 40
+  health: 0
 --- !u!54 &1113247046
 Rigidbody:
   m_ObjectHideFlags: 0

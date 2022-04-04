@@ -73,24 +73,20 @@ public class MovementManager : MonoBehaviour
 
 
     private GameManager gm;
-    // Start is called before the first frame update
-    void OnEnable() {
-        forwardDirection = transform.forward;
-        leftDirection = new Vector3(forwardDirection.z, forwardDirection.y, -forwardDirection.x);
-        initializeLanes();
-        determineExperience();
+    void Start(){
         //initializePos();        
-        targetLane = rightLane;
-        targetAngleIndex = 0;
+        determineExperience();
+        gm = GameObject.Find("GameManager")?.GetComponent<GameManager>();
+        
     }
+    // Start is called before the first frame update
+
 
     // Update is called once per frame
     void FixedUpdate() {
         if (gm == null) {
-            GameObject gmGO = GameObject.Find("GameManager");
-            if (gmGO != null) {
-                gm = gmGO.GetComponent<GameManager>();
-            }
+            gm = GameObject.Find("GameManager")?.GetComponent<GameManager>();
+            
         }
 
         if (canMove) {
@@ -139,6 +135,9 @@ public class MovementManager : MonoBehaviour
             targetLane = leftLane;
         else
             targetLane = rightLane;
+        
+        switchAngle();
+
     }
 
 
@@ -269,6 +268,11 @@ public class MovementManager : MonoBehaviour
     }
 
     private void initializePos() {
+        transform.localRotation= Quaternion.Euler(0,270,0);
+        forwardDirection = transform.forward;
+        leftDirection = new Vector3(forwardDirection.z, forwardDirection.y, -forwardDirection.x);
+    
+
         switch (experience) {
             case "ooo": {
                     transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
@@ -297,23 +301,21 @@ public class MovementManager : MonoBehaviour
         }
     }
     public void initializeExperimentPosition(){
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         initializePos();
+        leftLanesT = gm.leftLanes;
+        rightLanesT = gm.rightLanes;
+        initializeLanes();
+        targetLane = rightLane;
+        targetAngleIndex = 0;
     }
     public void setPosition(Vector3 position){
         transform.position = position;
     }
     private void initializeLanes()
     {
-        leftLanes[0] = new Vector3(0, 0, 179.14f);
-        rightLanes[0] = new Vector3(0, 0, 187.43f);
-        leftLanes[1] = new Vector3(-125, 0, 0);
-        rightLanes[1] = new Vector3(-138, 0, 0);
-        leftLanes[2] = new Vector3(0, 0, -275);
-        rightLanes[2] = new Vector3(0, 0, -262);
-        leftLanes[3] = new Vector3(143, 0, 0);
-        rightLanes[3] = new Vector3(156, 0, 0);
-        leftLane = leftLanes[0];
-        rightLane = rightLanes[0];
+        leftLane = leftLanesT[0].position;
+        rightLane = rightLanesT[0].position;
         turnNumber = 0;
     }
     public string getExperience() {
@@ -383,5 +385,6 @@ public class MovementManager : MonoBehaviour
         isDepassing = true;
         switchedLane = false;
         switchLane();
+        switchAngle();
     }
 }

@@ -375,7 +375,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.7987499, y: -0.61335945}
   m_SizeDelta: {x: 5.45, y: 1.19}
   m_Pivot: {x: 0.99999976, y: 0.4845569}
@@ -1355,7 +1355,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1502,7 +1502,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: -0.11999893}
   m_SizeDelta: {x: 20, y: -40.48}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1577,7 +1577,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 3.9}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2494,7 +2494,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &4434158927789837495
 MonoBehaviour:
@@ -2553,9 +2553,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translationAcceleration: {x: 0, y: 0, z: 0}
   rotationAcceleration: 0
+  forwardDirection: {x: 0, y: 0, z: 0}
+  leftDirection: {x: 0, y: 0, z: 0}
   timeBetweenAccelerations: 5
-  xTranslation: 0
-  zTranslation: 0
+  axisSelector: {x: 0, y: 0, z: 0}
+  xTranslation: 1
+  zTranslation: 1
   yRotation: 1
   stalePosition: {x: -160.5, y: -1.7, z: 180}
   crossingPosition: {x: -112, y: -1.7, z: 180.9}
@@ -2564,14 +2567,24 @@ MonoBehaviour:
   xSpeed: 10
   maxXSpeed: 15
   zSpeed: 10
-  leftLane: 179.14
-  rightLane: 187.43
+  leftLanesT:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rightLanesT:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  targetLane: {x: 0, y: 0, z: 0}
+  translationThreshold: 0.1
   angles:
   - 300
   - 240
   - 120
   - 60
-  rotationSpeed: 50
+  rotationSpeed: 60
 --- !u!114 &1762603619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4176,6 +4189,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3450632516983083360, guid: 7c07c4bc71b71ff4da0db6cfa7e14d62,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 3449921579670494262, guid: 7c07c4bc71b71ff4da0db6cfa7e14d62,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4220,11 +4238,6 @@ PrefabInstance:
         type: 3}
       propertyPath: arcDuration
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3450632516983083360, guid: 7c07c4bc71b71ff4da0db6cfa7e14d62,
-        type: 3}
-      propertyPath: m_TagString
-      value: Water
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c07c4bc71b71ff4da0db6cfa7e14d62, type: 3}

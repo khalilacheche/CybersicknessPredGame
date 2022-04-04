@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     private int numActiveFires = 0;
     private discomfort_manager discommforGUIManager;
 
+    public float timeScale = 1;
+    public Transform [] leftLanes = new Transform[4];
+    public Transform [] rightLanes = new Transform[4];
+
+
 
 
     private GameObject player;
@@ -53,6 +58,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
+        Time.timeScale = timeScale;
         switch (player.GetComponent<MovementManager>().getExperience()){
             case "XZo":
             case "XZR":{
