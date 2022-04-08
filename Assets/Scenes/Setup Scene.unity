@@ -363,7 +363,7 @@ MonoBehaviour:
   DataTrackerObject: {fileID: 219641318}
   Player: {fileID: 621003907}
   skipTutorial: 1
-  setupComplete: 0
+  setupComplete: 1
 --- !u!4 &818133159
 Transform:
   m_ObjectHideFlags: 0
