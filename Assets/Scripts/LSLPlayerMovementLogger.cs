@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LSL;
 
-public class LSLPlayerMovementMarker : MonoBehaviour
+public class LSLPlayerMovementLogger : MonoBehaviour
 {
     
     private float[] PlayerInfoData;
@@ -20,27 +20,34 @@ public class LSLPlayerMovementMarker : MonoBehaviour
     private liblsl.StreamInfo lslStreamInfo;
     private liblsl.StreamOutlet lslOutlet;
     private const int lslChannelCount = 6;
-
+    private MovementManager movementManager;
     private double nominal_srate = 60;
     private const liblsl.channel_format_t lslChannelFormat = liblsl.channel_format_t.cf_float32;
 
     // Start is called before the first frame update
     void Start()
     {
+        movementManager = GameObject.FindGameObjectWithTag("Player")?.GetComponent<MovementManager>();
         PlayerInfoData = new float[lslChannelCount];
         lslOutlet = KickStartPlayerLSLStream();
     }
 
     private void FixedUpdate()
     {
-        /*
+        Vector3 translation = movementManager.translationAcceleration;
+        Vector3 rotation = movementManager.rotationAcceleration;
         // Get Player Data
-        PlayerInfoData[0] = Camera.main.transform.localPosition.x;
-        PlayerInfoData[1] = Camera.main.transform.localPosition.y;
-        PlayerInfoData[2] = Camera.main.transform.localPosition.z;
+        PlayerInfoData[0] = translation.x;
+        PlayerInfoData[1] = translation.y;
+        PlayerInfoData[2] = translation.z;
+        PlayerInfoData[3] = rotation.x;
+        PlayerInfoData[4] = rotation.y;
+        PlayerInfoData[5] = rotation.z;
         lslOutlet.push_sample(PlayerInfoData);
+        if(translation.magnitude > 1)
+            Debug.Log(translation);
 
-        PlayerInfoData = new float[lslChannelCount];*/
+        PlayerInfoData = new float[lslChannelCount];
     }
 
     liblsl.StreamOutlet KickStartPlayerLSLStream()

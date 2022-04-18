@@ -56,8 +56,6 @@ public class carMovement : MonoBehaviour
         if (Mathf.Abs(Vector3.Dot(transform.position, axisSelector) - Vector3.Dot(axisSelector, targetLane)) > translationThreshold)
         {
             transform.position += axisSelector * Time.deltaTime * carSpeed  * Mathf.Sign(Vector3.Dot(axisSelector, targetLane) - Vector3.Dot(axisSelector, transform.position));
-            Debug.Log(turnNumber);
-            Debug.Log(targetLane);
         }
     }
 }

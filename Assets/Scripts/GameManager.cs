@@ -10,27 +10,36 @@ public class GameManager : MonoBehaviour
     private GameObject[] turns;
     private GameObject[] turnarounds;
 
+    private bool experimentEnded;
+
     private  Fire [] fires;
     private Fire currentFire;
     private Fire previousFire;
     private int numActiveFires = 0;
     private discomfort_manager discommforGUIManager;
+    public bool forceQuit;
 
     public float timeScale = 1;
     public Transform [] leftLanes = new Transform[4];
     public Transform [] rightLanes = new Transform[4];
 
+    public static float EXPERIMENT_DURATION_TIME = 20 * 60; //Duration in seconds
+    public float remainingTime;
+
+    private LSLEventMarker eventMarker;
 
 
 
     private GameObject player;
 
-    private const float MIN_DISTANCE_BETWEEN_CARS = 50;
-
     private bool started = false;
     void Start(){
+        experimentEnded = false;
+        eventMarker = GameObject.FindGameObjectWithTag("DataTracker").GetComponent<LSLEventMarker>();
+        eventMarker.PushData("EXP_START");
+        remainingTime = EXPERIMENT_DURATION_TIME;
         score = 0;
-        InvokeRepeating("PromptUser", 10, 20);
+        //InvokeRepeating("PromptUser", 10, 20);
         currentFire = null;
         previousFire = null;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -47,6 +56,24 @@ public class GameManager : MonoBehaviour
         {
             fires[i] = firesAsGO[i].GetComponent<Fire>();
         }
+        switch (player.GetComponent<MovementManager>().getExperience())
+        {
+            case "XZo":
+            case "XZR":
+                {
+                    setTurns(true);
+                    setTurnarounds(false);
+                    setAllObstacles(true);
+                    break;
+                }
+            default:
+                {
+                    setTurns(false);
+                    setTurnarounds(true);
+                    setAllObstacles(false);
+                    break;
+                }
+        }
     }
 
     private void PromptUser(){
@@ -58,22 +85,28 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
-        Time.timeScale = timeScale;
-        switch (player.GetComponent<MovementManager>().getExperience()){
-            case "XZo":
-            case "XZR":{
-                setTurns(true);
-                setTurnarounds(false);
-                setAllObstacles(true);
-                break;
-            }
-            default:{
-                setTurns(false);
-                setTurnarounds(true);
-                setAllObstacles(false);
-                break;
-            }
+        if (experimentEnded)
+        {
+            Time.timeScale = 0;
+            return;
         }
+        if (forceQuit)
+        {
+            eventMarker.PushData("EXP_END_FORCEQUIT");
+            experimentEnded = true;
+        }
+
+        remainingTime -= Time.deltaTime;
+        if(remainingTime < 0)
+        {
+            Debug.Log("Experiment Ended");
+            eventMarker.PushData("EXP_END_TIME");
+            experimentEnded = true;
+
+
+        }
+        Time.timeScale = timeScale;
+
     }
     private void setAllObstacles(bool value){
         foreach(GameObject obstacle in obstacles){
@@ -97,23 +130,6 @@ public class GameManager : MonoBehaviour
     public void notifyRebirthFire(){
         numActiveFires++;
     }
-    /*
-    public void MoveToNext(){
-        score++;
-        //look for closest fire to start, according to player direction
-        float minDistance = float.MaxValue;
-        Fire next = null;
-        foreach( Fire fire in fires){
-            float distance = Vector3.Distance(fire.gameObject.transform.position, player.transform.position);
-            if( distance < minDistance && fire != currentFire && fire != previousFire){
-                next = fire;
-                minDistance = distance;   
-            }  
-        }
-        previousFire = currentFire;
-        currentFire = next;
-        next.reset();
-    }*/
     public int getScore(){
         return score;
     }

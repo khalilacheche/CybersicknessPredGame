@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 
 public class EyeThreadReader : MonoBehaviour
 {
-    private LSLEyeThreaderMarker DataThread = null;
+    private LSLEyeThreaderLogger DataThread = null;
 
     public int TARGET_FRAMERATE = 60;
 
@@ -24,7 +24,7 @@ public class EyeThreadReader : MonoBehaviour
     {
         Application.targetFrameRate = TARGET_FRAMERATE;
 
-        DataThread = FindObjectOfType<LSLEyeThreaderMarker>();
+        DataThread = FindObjectOfType<LSLEyeThreaderLogger>();
         if (DataThread == null) return;
 
         leftCounter = new int[3];

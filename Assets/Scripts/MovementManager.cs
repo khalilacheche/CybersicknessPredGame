@@ -5,41 +5,87 @@ using UnityEngine;
 public class MovementManager : MonoBehaviour
 {
 
+    [Header("EXPERIMENT")]
+    public bool xTranslation = false;
+    public bool zTranslation = false;
+    public bool yRotation = false;
+
+
+
     private bool canMove = false;
+
     private bool switchedLane = true;
     private bool isDepassing = false;
-    public Vector3 translationAcceleration;
-    public float rotationAcceleration;
-    private Vector3 lastPosition;
-    private Vector3 lastTranlsationSpeed;
     private GameObject carToDepass;
+
+
+    private Vector3 lastForward;
+    public Vector3 translationAcceleration;
+    public Vector3 rotationAcceleration;
+    private Vector3 lastPosition;
+    private Vector3 lastLocalSpeed;
+    private Vector3 lastTranlsationSpeed;
+    private Vector3 lastAngles;
+    private Vector3 lastRotationSpeed;
+
+
     public Vector3 forwardDirection;
     public Vector3 leftDirection;
     private Vector3 leftLane;
     private Vector3 rightLane;
     private int turnNumber;
-    private float lastAngle;
-    private float lastRotationSpeed;
     private float switchTime = 0;
     public float timeBetweenAccelerations = 5;
     public Vector3 axisSelector;
 
 
-    public bool xTranslation = false;
-    public bool zTranslation = false;
-    public bool yRotation = false;
+    
 
     private string experience;
 
-    [Header("stale Experience Parameters")]
-    public Vector3 stalePosition = new Vector3(-160.5f, -2.5f, 168.7f);
-    [Header("Rotation Experience Parameters")]
-    public Vector3 crossingPosition = new Vector3(-112, -0.89f, 180.9f);
-    [Header("X or Z  w/o R Experiences Parameters")]
-    public Vector3 startPosition = new Vector3(-57, -1.7f, 180.9f);
 
-    [Header("X and Z  w/o R Experiences Parameters")]
-    public Vector3 startPositionXZ = new Vector3(57, -1.7f, 186.5f);
+
+    [Header("ooo Experiment Parameters")]
+    public Vector3 OOOStartPosition = new Vector3(-160.5f, -2.5f, 168.7f);
+    public Vector3 OOOStartRotation = new Vector3(0.0f, 0.0f, 0.0f);
+
+    [Header("Xoo Experiment Parameters")]
+    public Vector3 XOOStartPosition = new Vector3(-57, -1.7f, 180.9f);
+    public Vector3 XOOStartRotation = new Vector3(0.0f, 270.0f, 0.0f);
+
+    [Header("oZo Experiment Parameters")]
+    public Vector3 OZOStartPosition = new Vector3(-57, -1.7f, 180.9f);
+    public Vector3 OZOStartRotation = new Vector3(0.0f, 0.0f, 0.0f);
+
+    [Header("ooR Experiment Parameters")]
+    public Vector3 OORStartPosition = new Vector3(-112, -0.89f, 180.9f);
+    public Vector3 OORStartRotation = new Vector3(0.0f, 270.0f, 0.0f);
+    public float[] OORAngles = { 290, 250, 110, 70 };
+
+    [Header("XoR Experiment Parameters")]
+    public Vector3 XORStartPosition = new Vector3(-57, -1.7f, 180.9f);
+    public Vector3 XORStartRotation = new Vector3(0.0f, 270.0f, 0.0f);
+    public float[] XORAngles = { 200, 170, 20, -20};
+
+    [Header("oZR Experiment Parameters")]
+    public Vector3 OZRStartPosition = new Vector3(-57, -1.7f, 180.9f);
+    public Vector3 OZRStartRotation = new Vector3(0.0f, 270.0f, 0.0f);
+    public float[] OZRAngles = { 290, 250, 110, 70 };
+
+    [Header("XZo Experiment Parameters")]
+    public Vector3 XZOStartPosition = new Vector3(57, -1.7f, 186.5f);
+    public Vector3 XZOStartRotation = new Vector3(0.0f, 270.0f, 0.0f);
+
+    [Header("XZR Experiment Parameters")]
+    public Vector3 XZRStartPosition = new Vector3(57, -1.7f, 186.5f);
+    public Vector3 XZRStartRotation = new Vector3(0.0f, 270.0f, 0.0f);
+    public float[] XZRAngles = { 290, 250, 110, 70 };
+
+
+
+
+
+    
 
 
     [Header("X Translation Parameters")]
@@ -61,7 +107,7 @@ public class MovementManager : MonoBehaviour
 
     [Header("Y rotation parameters")]
 
-    public float[] angles = { 300, 240, 120, 60 };
+     public float[] angles = new float[4];//= { 300, 240, 120, 60 };
 
 
 
@@ -92,32 +138,57 @@ public class MovementManager : MonoBehaviour
         if (canMove) {
             updateMov();
         }
+        calculateAccelerations();
+
     }
 
+    private void calculateAccelerations()
+    {
+        Vector3 currentPosition = gameObject.transform.position;
+        Vector3 currentSpeed = (currentPosition - lastPosition)/Time.fixedDeltaTime;
+        translationAcceleration = (currentSpeed - lastTranlsationSpeed) / Time.fixedDeltaTime;
+
+
+
+        Vector3 currLocalPosition = transform.localToWorldMatrix * transform.position;
+        Vector3 lastLocalPosition = transform.localToWorldMatrix * lastPosition;
+
+        Vector3 currLocalSpeed = (currLocalPosition - lastLocalPosition) / Time.fixedDeltaTime;
+        Vector3 localTranslationAccleration = (currLocalSpeed - lastLocalSpeed) / Time.fixedDeltaTime;
+        translationAcceleration = localTranslationAccleration;
+        lastPosition = currentPosition;
+        lastTranlsationSpeed = currentSpeed;
+        lastLocalSpeed = currLocalSpeed;
+
+
+
+        Vector3 currForProjXZ = Vector3.ProjectOnPlane(transform.forward, Vector3.up); //Normal is Y axis
+        Vector3 lastForProjXZ = Vector3.ProjectOnPlane(lastForward, Vector3.up); //Normal is Y axis
+        float rotationOnYAxis = Vector3.SignedAngle(lastForProjXZ, currForProjXZ, Vector3.up);
+        lastForward = transform.forward;
+
+        Vector3 currentAngles = gameObject.transform.localRotation.eulerAngles;
+        Vector3 currentRotationSpeed = new Vector3(0,rotationOnYAxis,0) / Time.fixedDeltaTime;
+
+        //Debug.Log(currentRotationSpeed);
+        rotationAcceleration = (currentRotationSpeed - lastRotationSpeed) / Time.fixedDeltaTime;
+        lastAngles = currentAngles;
+        lastRotationSpeed = currentRotationSpeed;
+   
+
+    }
+
+
     private void OnTriggerEnter(Collider col) {
-        /*if (col.gameObject.layer == LayerMask.NameToLayer("Obstacle")) {
-            switchLane();
-        }
-        */
         if (col.gameObject.layer == LayerMask.NameToLayer("turn")) {
             rotateAxis();
         }
         if (col.gameObject.layer == LayerMask.NameToLayer("turnaround")) {
             xDirection *= -1;
         }
-        /*if(col.gameObject.layer== LayerMask.NameToLayer("carBehind")){
-            switchLane();
-            accelerate(10);
-        }*/
-        /*
-        if(col.gameObject.layer== LayerMask.NameToLayer("carFront")){
-            switchLane();
-            accelerate(-10);
-        }
-        */
     }
     private void switchLane() {
-        //value of targetLane is gonna be only the valueof rightLane or leftLane, so it's okay to perform float equality
+        //value of targetLane is gonna be only the value of rightLane or leftLane, so it's okay to perform float equality
         if (targetLane == rightLane) {
             targetLane = leftLane;
         } else {
@@ -149,11 +220,11 @@ public class MovementManager : MonoBehaviour
     private void accelerate(int speed) {
         xSpeed += speed;
     }
-    private void switchSpeed() {
+    private void switchSpeed() {/*
         if (xSpeed <= 10)
             accelerate(15);
         else
-            accelerate(5);
+            accelerate(5);*/
     }
     private void moveForward() {
         transform.position += forwardDirection * Time.deltaTime * xSpeed * xDirection;
@@ -267,42 +338,67 @@ public class MovementManager : MonoBehaviour
         }
     }
 
-    private void initializePos() {
-        transform.localRotation= Quaternion.Euler(0,270,0);
-        forwardDirection = transform.forward;
-        leftDirection = new Vector3(forwardDirection.z, forwardDirection.y, -forwardDirection.x);
-    
-
+    private void initializeExperiment() {
+      
         switch (experience) {
             case "ooo": {
-                    transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
-                    transform.position = stalePosition;
+                    transform.localRotation = Quaternion.Euler(OOOStartRotation);
+                    transform.position = OOOStartPosition;
+                    break;
+                }
+            case "Xoo": {
+
+                    transform.localRotation = Quaternion.Euler(XOOStartRotation);
+                    transform.position = XOOStartPosition; 
+                    break;
+                }
+            case "oZo": {
+
+                    transform.localRotation = Quaternion.Euler(OZOStartRotation);
+                    transform.position = OZOStartPosition;
                     break;
                 }
             case "ooR": {
-                    transform.position = crossingPosition;
+
+                    transform.localRotation = Quaternion.Euler(OORStartRotation);
+                    transform.position = OORStartPosition;
                     break;
                 }
-            case "XoR":
-            case "Xoo": {
-                    transform.position = startPosition;
+            case "XoR": {
+
+                    transform.localRotation = Quaternion.Euler(XORStartRotation);
+                    transform.position = XORStartPosition;
+                    XORAngles.CopyTo(angles, 0);
                     break;
                 }
-            case "oZR":
-            case "oZo": {
-                    transform.position = startPosition;
-                    transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
+
+            case "oZR":{
+
+                    transform.localRotation = Quaternion.Euler(OZRStartRotation);
+                    transform.position = OZRStartPosition;
+                    OZRAngles.CopyTo(angles, 0);
                     break;
                 }
-            default: {
-                    transform.position = startPositionXZ;
+
+            case "XZo": {
+
+                    transform.localRotation = Quaternion.Euler(XZOStartRotation);
+                    transform.position = XZOStartPosition;
+                    break;
+                }
+            case "XZR":{
+                    transform.localRotation = Quaternion.Euler(XZRStartRotation);
+                    transform.position = XZRStartPosition;
+                    XZRAngles.CopyTo(angles, 0);
                     break;
                 }
         }
+        forwardDirection = transform.forward;
+        leftDirection = new Vector3(forwardDirection.z, forwardDirection.y, -forwardDirection.x);
     }
     public void initializeExperimentPosition(){
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        initializePos();
+        initializeExperiment();
         leftLanesT = gm.leftLanes;
         rightLanesT = gm.rightLanes;
         initializeLanes();
@@ -332,7 +428,6 @@ public class MovementManager : MonoBehaviour
         {
             startDepassing();
             carToDepass = carHit.collider.gameObject;
-            Debug.Log("car found ___________");
         }
 
         if (isDepassing)
@@ -345,40 +440,6 @@ public class MovementManager : MonoBehaviour
             switchLane();
             isDepassing = false;
         }
-        /*RaycastHit turnHit;
-        if (Physics.Raycast(transform.position, forwardDirection, out turnHit, 40.0f, LayerMask.GetMask("turn")))
-        {
-            if (isDepassing)
-            {
-                xSpeed = 7;
-            }
-        }*/
-
-        /*public void canDepass()
-        {
-            RaycastHit carHit;
-            if (Physics.Raycast(transform.position, forwardDirection, out carHit, 20.0f, LayerMask.GetMask("Obstacle")))
-            {
-
-                RaycastHit turnHit;
-                if (Physics.Raycast(transform.position, forwardDirection, out turnHit, 100.0f, LayerMask.GetMask("noDepassingZone")))
-                {
-                    Debug.Log(turnHit.distance + "-------------" + carHit.distance);
-                    //if (2 * carHit.distance > turnHit.distance)
-                    {
-                        xSpeed = 7;
-                        Debug.Log(xSpeed);
-                        return;
-                    }
-                }
-            }
-            if (xSpeed <= 10)
-            {
-                xSpeed = 10;
-            }
-            Debug.Log(xSpeed);
-        }
-        */
     }
     public void startDepassing()
     {

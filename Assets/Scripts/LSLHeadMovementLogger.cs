@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LSL;
 
-public class LSLPlayerLogger : MonoBehaviour
+public class LSLHeadMovementLogger : MonoBehaviour
 {
     
     private float[] PlayerInfoData;
@@ -37,9 +37,9 @@ public class LSLPlayerLogger : MonoBehaviour
         PlayerInfoData[0] = Camera.main.transform.localPosition.x;
         PlayerInfoData[1] = Camera.main.transform.localPosition.y;
         PlayerInfoData[2] = Camera.main.transform.localPosition.z;
-        PlayerInfoData[3] = Camera.main.transform.rotation.eulerAngles.x;
-        PlayerInfoData[4] = Camera.main.transform.rotation.eulerAngles.y;
-        PlayerInfoData[5] = Camera.main.transform.rotation.eulerAngles.z;
+        PlayerInfoData[3] = Camera.main.transform.localRotation.eulerAngles.x;
+        PlayerInfoData[4] = Camera.main.transform.localRotation.eulerAngles.y;
+        PlayerInfoData[5] = Camera.main.transform.localRotation.eulerAngles.z;
         lslOutlet.push_sample(PlayerInfoData);
 
         PlayerInfoData = new float[lslChannelCount];

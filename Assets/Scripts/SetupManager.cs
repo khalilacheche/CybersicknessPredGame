@@ -31,6 +31,7 @@ public class SetupManager : MonoBehaviour
             // Do Nothing
         }
         Player.GetComponent<MovementManager>().setPosition(Vector3.zero);
+        DataTrackerObject.GetComponent<LSLEventMarker>().PushData("SETUP_START");
 
         calibrationSuccess = false;
     }
@@ -56,8 +57,9 @@ public class SetupManager : MonoBehaviour
             if(timer <= 0f)
             {
                 text.gameObject.SetActive( false);
-                
-                
+
+
+                DataTrackerObject.GetComponent<LSLEventMarker>().PushData("SETUP_END");
 
                 KickStartExperiment();
             }

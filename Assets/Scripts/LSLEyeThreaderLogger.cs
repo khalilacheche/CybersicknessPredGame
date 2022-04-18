@@ -15,7 +15,7 @@ using static BlinkTracker;
 using static EyeTracker;
 using LSL;
 
-public class LSLEyeThreaderMarker : MonoBehaviour
+public class LSLEyeThreaderLogger : MonoBehaviour
 {
     public EyeData data = new EyeData();
     private Thread thread;

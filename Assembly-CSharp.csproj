@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{994B0259-1191-464F-96F9-C1C364613A9B}</ProjectGuid>
+    <ProjectGuid>{3B3D1E89-A4D3-495F-ECD0-150FA751CBEC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,7 +47,6 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.10.3.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.2.0f1</UnityVersion>
@@ -98,11 +97,11 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LSL.cs" />
     <Compile Include="Assets\Scripts\LSLEventMarker.cs" />
-    <Compile Include="Assets\Scripts\LSLEyeThreaderMarker.cs" />
+    <Compile Include="Assets\Scripts\LSLEyeThreaderLogger.cs" />
     <Compile Include="Assets\Scripts\LSLEyeTracker.cs" />
+    <Compile Include="Assets\Scripts\LSLHeadMovementLogger.cs" />
     <Compile Include="Assets\Scripts\LSLInterface.cs" />
-    <Compile Include="Assets\Scripts\LSLPlayerLogger.cs" />
-    <Compile Include="Assets\Scripts\LSLPlayerMovementMarker.cs" />
+    <Compile Include="Assets\Scripts\LSLPlayerMovementLogger.cs" />
     <Compile Include="Assets\Scripts\movement_manager.cs" />
     <Compile Include="Assets\Scripts\MovementManager.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
@@ -138,40 +137,40 @@
     <None Include="Assets\Resources\ViveSR\Shaders\Unlit-Alpha2Gray.shader" />
     <None Include="Assets\Resources\Polygonal Particles\Assets\Shaders\GradientBackgroundShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -351,16 +350,16 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Assets/Resources/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Assets/Resources/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/abenmust/Desktop/Khalil Raed/predgame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -710,23 +709,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SteamVR_Actions.csproj">
-      <Project>{1D7D2509-42F5-9D5F-B63A-1D5E15EDBE28}</Project>
+      <Project>{8F3209D5-C304-109E-8C23-F17F805112B8}</Project>
       <Name>SteamVR_Actions</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
-      <Project>{7C437628-66DB-3484-849F-A7FF5F27A05D}</Project>
+      <Project>{58B85CB6-6600-28A1-0922-0E963F89C4DA}</Project>
       <Name>SteamVR_Input_Editor</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Editor.csproj">
-      <Project>{309F2379-0065-524E-9494-8A4C96FC8C33}</Project>
+      <Project>{D6AD2B75-E0C0-0B93-A73E-BD5C3AAB734F}</Project>
       <Name>SteamVR_Editor</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR.csproj">
-      <Project>{D26770B5-0B7E-08DC-CE07-92D4F4EC608D}</Project>
+      <Project>{2B101B37-221F-CA76-FE78-8D010E85DA8A}</Project>
       <Name>SteamVR</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
-      <Project>{B2FEB791-826B-3C6D-BE43-5C8FB4ECEC91}</Project>
+      <Project>{CDA567D1-6469-FCE5-7994-B89F4B04200E}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
     </ProjectReference>
   </ItemGroup>
