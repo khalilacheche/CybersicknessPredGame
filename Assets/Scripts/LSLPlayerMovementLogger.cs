@@ -44,8 +44,9 @@ public class LSLPlayerMovementLogger : MonoBehaviour
         PlayerInfoData[4] = rotation.y;
         PlayerInfoData[5] = rotation.z;
         lslOutlet.push_sample(PlayerInfoData);
-        if(translation.magnitude > 1)
+        /*if(translation.magnitude > 1)
             Debug.Log(translation);
+        */
 
         PlayerInfoData = new float[lslChannelCount];
     }

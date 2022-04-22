@@ -115,7 +115,7 @@ public class MovementManager : MonoBehaviour
 
     float degreesPerSecond = 20;
     public float rotationSpeed = 5;
-    private float yThreshold = 1f;
+    public float yThreshold = 1f;
 
 
     private GameManager gm;
@@ -180,6 +180,7 @@ public class MovementManager : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider col) {
+        Debug.Log(col.name);
         if (col.gameObject.layer == LayerMask.NameToLayer("turn")) {
             rotateAxis();
         }
@@ -397,6 +398,7 @@ public class MovementManager : MonoBehaviour
         leftDirection = new Vector3(forwardDirection.z, forwardDirection.y, -forwardDirection.x);
     }
     public void initializeExperimentPosition(){
+        determineExperience();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         initializeExperiment();
         leftLanesT = gm.leftLanes;

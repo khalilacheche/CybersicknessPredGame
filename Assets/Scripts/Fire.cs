@@ -14,7 +14,7 @@ public class Fire : MonoBehaviour
     private  ParticleSystem firePS;
     private ParticleSystem smokePS;
     private float deathTimeCounter =0;
-    public float timeDeadSeconds = 30;
+    public float timeDeadSeconds = 10;
 
     private GameManager gm;
 

@@ -47,6 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>4.11.4.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.2.0f1</UnityVersion>
@@ -68,23 +69,23 @@
     <Compile Include="Assets\DiscomfortGUIAction.cs" />
     <Compile Include="Assets\FireAction.cs" />
     <Compile Include="Assets\PlayerParameters.cs" />
-    <Compile Include="Assets\Resources\SimplePoly - Town Pack\DemoScene\FlyCamera.cs" />
-    <Compile Include="Assets\Resources\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
-    <Compile Include="Assets\Resources\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
-    <Compile Include="Assets\Resources\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\SunShafts.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\Sample\DartBoard.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\Sample\SRanipal_AvatarEyeSample.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\Sample\SRanipal_EyeFocusSample.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\Sample\SRanipal_EyeSettingSample.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\Sample\SRanipal_GazeRaySample.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\Sample\SRanipal_MirrorCameraSample_Eye.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\SRanipal_API.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\SRanipal_Enums.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\SRanipal_Eye.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\SRanipal_Eye_Enums.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\SRanipal_Eye_Framework.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\SRanipal_EyeShapeTableDrawer.cs" />
-    <Compile Include="Assets\Resources\ViveSR\Scripts\SRWorks_Enums.cs" />
+    <Compile Include="Assets\Res\SimplePoly - Town Pack\DemoScene\FlyCamera.cs" />
+    <Compile Include="Assets\Res\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
+    <Compile Include="Assets\Res\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
+    <Compile Include="Assets\Res\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Scripts\SunShafts.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\Sample\DartBoard.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\Sample\SRanipal_AvatarEyeSample.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\Sample\SRanipal_EyeFocusSample.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\Sample\SRanipal_EyeSettingSample.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\Sample\SRanipal_GazeRaySample.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\Sample\SRanipal_MirrorCameraSample_Eye.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\SRanipal_API.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\SRanipal_Enums.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\SRanipal_Eye.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\SRanipal_Eye_Enums.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\SRanipal_Eye_Framework.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\SRanipal_EyeShapeTableDrawer.cs" />
+    <Compile Include="Assets\Res\ViveSR\Scripts\SRWorks_Enums.cs" />
     <Compile Include="Assets\Scripts\BITalinoConnector.cs" />
     <Compile Include="Assets\Scripts\BlinkTracker.cs" />
     <Compile Include="Assets\Scripts\CallCalibration.cs" />
@@ -127,50 +128,50 @@
     <Compile Include="Assets\TextAction.cs" />
     <Compile Include="Assets\TutorialFire.cs" />
     <Compile Include="Assets\TutorialManager.cs" />
-    <None Include="Assets\Resources\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
-    <None Include="Assets\Resources\ViveSR\Shaders\DartBoardShader.shader" />
-    <None Include="Assets\Resources\POLYGON city pack\Read_me.txt" />
-    <None Include="Assets\Resources\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
-    <None Include="Assets\Resources\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
+    <None Include="Assets\Res\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
+    <None Include="Assets\Res\ViveSR\Shaders\DartBoardShader.shader" />
+    <None Include="Assets\Res\POLYGON city pack\Read_me.txt" />
+    <None Include="Assets\Res\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
+    <None Include="Assets\Res\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
     <None Include="Assets\Materials\NonUIOcclusion.shader" />
-    <None Include="Assets\Resources\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
-    <None Include="Assets\Resources\ViveSR\Shaders\Unlit-Alpha2Gray.shader" />
-    <None Include="Assets\Resources\Polygonal Particles\Assets\Shaders\GradientBackgroundShader.shader" />
+    <None Include="Assets\Res\SimplePoly - Town Pack\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
+    <None Include="Assets\Res\ViveSR\Shaders\Unlit-Alpha2Gray.shader" />
+    <None Include="Assets\Res\Polygonal Particles\Assets\Shaders\GradientBackgroundShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -350,16 +351,16 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Assets/Resources/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Assets/Res/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

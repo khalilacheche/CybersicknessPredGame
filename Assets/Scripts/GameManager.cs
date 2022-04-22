@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public Transform [] rightLanes = new Transform[4];
 
     public static float EXPERIMENT_DURATION_TIME = 20 * 60; //Duration in seconds
-    public float remainingTime;
+    public float timer;
 
     private LSLEventMarker eventMarker;
 
@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour
         experimentEnded = false;
         eventMarker = GameObject.FindGameObjectWithTag("DataTracker").GetComponent<LSLEventMarker>();
         eventMarker.PushData("EXP_START");
-        remainingTime = EXPERIMENT_DURATION_TIME;
+        timer = 0;
         score = 0;
-        //InvokeRepeating("PromptUser", 10, 20);
+        InvokeRepeating("PromptUser", 60, 60);
         currentFire = null;
         previousFire = null;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -77,11 +77,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void PromptUser(){
-        discommforGUIManager.enableDiscomfortGUI(userEndedDiscomfortHandler);
-    }
-
-    public void userEndedDiscomfortHandler(){
-        Debug.Log(discommforGUIManager.getDiscomfort());
+        discommforGUIManager.enableDiscomfortGUI();
     }
 
     void Update(){
@@ -96,8 +92,8 @@ public class GameManager : MonoBehaviour
             experimentEnded = true;
         }
 
-        remainingTime -= Time.deltaTime;
-        if(remainingTime < 0)
+        timer += Time.deltaTime;
+        if(timer>= EXPERIMENT_DURATION_TIME)
         {
             Debug.Log("Experiment Ended");
             eventMarker.PushData("EXP_END_TIME");
@@ -136,5 +132,17 @@ public class GameManager : MonoBehaviour
     public float getFireIntensity(){
         return ((float)numActiveFires)/fires.Length;
     }
-    
+    void OnGUI()
+    {
+
+        int left = Screen.width / 2 - 50 / 2;
+        int top = Screen.height - 20 - 50;
+
+        if (GUI.Button(new Rect(left, top, 200, 50), "Force Quit"))
+        {
+            forceQuit = true;
+        }
+        GUI.Label(new Rect(left, Screen.height / 2 - 10, 100, 100), ((int)(timer/60)).ToString()+":"+(int)(timer % 60));
+
+    }
 }

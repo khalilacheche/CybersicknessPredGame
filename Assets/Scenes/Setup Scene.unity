@@ -315,10 +315,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1989706817, guid: 0647c6af8cbb479428321c760fa2a478, type: 3}
-      propertyPath: yRotation
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0647c6af8cbb479428321c760fa2a478, type: 3}
 --- !u!1 &621003907 stripped
@@ -357,13 +353,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCalibration: 0
-  timer: 1
+  timer: 10
   text: {fileID: 209268735}
   SRAnipalObject: {fileID: 1240442256}
   DataTrackerObject: {fileID: 219641318}
   Player: {fileID: 621003907}
-  skipTutorial: 1
-  setupComplete: 1
+  skipTutorial: 0
+  setupComplete: 0
 --- !u!4 &818133159
 Transform:
   m_ObjectHideFlags: 0

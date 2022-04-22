@@ -47,6 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>4.11.4.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.2.0f1</UnityVersion>
@@ -63,23 +64,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_buggy.cs" />
-    <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_default.cs" />
-    <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_mixedreality.cs" />
-    <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_platformer.cs" />
-    <Compile Include="Assets\Resources\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_StandardControl.cs" />
-    <Compile Include="Assets\Resources\SteamVR_Input\SteamVR_Input_Actions.cs" />
-    <Compile Include="Assets\Resources\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
-    <Compile Include="Assets\Resources\SteamVR_Input\SteamVR_Input_Initialization.cs" />
-    <None Include="Assets\Resources\SteamVR_Input\SteamVR_Actions.asmdef" />
+    <Compile Include="Assets\Res\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_buggy.cs" />
+    <Compile Include="Assets\Res\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_default.cs" />
+    <Compile Include="Assets\Res\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_mixedreality.cs" />
+    <Compile Include="Assets\Res\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_platformer.cs" />
+    <Compile Include="Assets\Res\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_StandardControl.cs" />
+    <Compile Include="Assets\Res\SteamVR_Input\SteamVR_Input_Actions.cs" />
+    <Compile Include="Assets\Res\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
+    <Compile Include="Assets\Res\SteamVR_Input\SteamVR_Input_Initialization.cs" />
+    <None Include="Assets\Res\SteamVR_Input\SteamVR_Actions.asmdef" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -271,22 +272,22 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Assets/Resources/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Assets/Res/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/acheche/Desktop/Khalil Raed/CybersicknessPredGame/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/acheche/Desktop/CyPred/CybersicknessPredGame/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.0f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

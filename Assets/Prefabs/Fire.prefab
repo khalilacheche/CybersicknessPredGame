@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4664551786761108924}
   - component: {fileID: 4664551786761108925}
   - component: {fileID: 4664551786761108914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fire
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ ParticleSystem:
   m_GameObject: {fileID: 4664551786761108927}
   serializedVersion: 6
   lengthInSec: 1.95
-  simulationSpeed: 1
+  simulationSpeed: 0.5
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
@@ -119,8 +119,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.7
-      minScalar: 1.3
+      scalar: 0.75
+      minScalar: 0.0001
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -270,7 +270,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 30
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -590,7 +590,7 @@ ParticleSystem:
         m_RotationOrder: 4
   ShapeModule:
     serializedVersion: 6
-    enabled: 1
+    enabled: 0
     type: 4
     angle: 8.81
     length: 5
@@ -903,7 +903,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 2
@@ -1101,7 +1101,7 @@ ParticleSystem:
         m_RotationOrder: 0
     separateAxes: 0
   RotationModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2094,7 +2094,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   ForceModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2590,7 +2590,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -4747,8 +4747,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  healthThreshhold: 10
   initialFireRate: 50
   initialSmokeRate: 40
+  timeDeadSeconds: 5
 --- !u!54 &4664551786761108914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4776,7 +4778,7 @@ GameObject:
   - component: {fileID: 4663434610140577611}
   - component: {fileID: 4790061508960318003}
   - component: {fileID: 4791132294146874367}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4806,7 +4808,7 @@ ParticleSystem:
   m_GameObject: {fileID: 4665070125972125965}
   serializedVersion: 6
   lengthInSec: 1.95
-  simulationSpeed: 1
+  simulationSpeed: 0.5
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
@@ -4881,7 +4883,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 5
-      minScalar: 4
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4915,7 +4917,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5347,7 +5349,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 1
-    maxNumParticles: 200
+    maxNumParticles: 20
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -5405,7 +5407,7 @@ ParticleSystem:
         m_RotationOrder: 4
   ShapeModule:
     serializedVersion: 6
-    enabled: 1
+    enabled: 0
     type: 4
     angle: 3.64
     length: 5
@@ -5898,7 +5900,7 @@ ParticleSystem:
         m_RotationOrder: 0
     separateAxes: 0
   RotationModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -6891,7 +6893,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   ForceModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -7387,7 +7389,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
