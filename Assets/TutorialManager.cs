@@ -28,8 +28,6 @@ public class TutorialManager : MonoBehaviour
         if(startTutorial && !hasStarted){
             hasStarted= true;
             actions[0].startAction();
-
-            eventMarker.PushData("TUTO_START");
         }
         
     }
@@ -37,7 +35,7 @@ public class TutorialManager : MonoBehaviour
         if(++currentAction<actions.Count){
             actions[currentAction].startAction();
         }else{
-            eventMarker.PushData("TUTO_END");
+            eventMarker.PushData("TUTO_END",4);
             SceneManager.LoadScene(2);
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TextAction : Action
 {
+    [TextArea]
     public string text;
     public float duration = 5;
     private float timer;

@@ -35,9 +35,10 @@ public class LSLEventMarker : MonoBehaviour
         sample = new string[lslChannelCount];
     }
 
-    public void PushData(string data)
+    public void PushData(string data,byte trigger)
     {
         sample[0] = data;
         lslOutlet.push_sample(sample);
+        GetComponent<Triggerer>().SendTrigger(trigger);
     }
 }

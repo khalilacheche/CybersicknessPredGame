@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     void Start(){
         experimentEnded = false;
         eventMarker = GameObject.FindGameObjectWithTag("DataTracker").GetComponent<LSLEventMarker>();
-        eventMarker.PushData("EXP_START");
+        eventMarker.PushData("EXP_START",1);
         timer = 0;
         score = 0;
         InvokeRepeating("PromptUser", 60, 60);
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         }
         if (forceQuit)
         {
-            eventMarker.PushData("EXP_END_FORCEQUIT");
+            eventMarker.PushData("EXP_END_FORCEQUIT",2);
             experimentEnded = true;
         }
 
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         if(timer>= EXPERIMENT_DURATION_TIME)
         {
             Debug.Log("Experiment Ended");
-            eventMarker.PushData("EXP_END_TIME");
+            eventMarker.PushData("EXP_END_TIME",3);
             experimentEnded = true;
 
 

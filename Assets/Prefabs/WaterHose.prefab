@@ -48,9 +48,10 @@ MonoBehaviour:
   reticleTransform: {fileID: 3449921579758220972}
   lineColor: {r: 0, g: 0.88235295, b: 1, a: 1}
   waterFlowPersecond: 1.66
-  hand: {fileID: 0}
-  splash: {fileID: 0}
-  arcDistance: 15
+  LeftHand: {fileID: 0}
+  RightHand: {fileID: 0}
+  splash: {fileID: 3450632516983083360}
+  arcDistance: 20
   traceLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -66,9 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776e9a7da4926c5428280dd1a448fa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentCount: 60
+  segmentCount: 50
   thickness: 0.01
-  arcDuration: 3
+  arcDuration: 5
   segmentBreak: 0.025
   arcSpeed: 1
   material: {fileID: 2100000, guid: 140bd0e59d9bee94f9f0284c9eef5b32, type: 2}
@@ -99,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 3449921579670494263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.001, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3449921579758220972}
   m_RootOrder: 0
@@ -211,8 +212,8 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1001209505210446, guid: 172998df67304734aaab369580dd9b98, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_TagString
+      value: Water
       objectReference: {fileID: 0}
     - target: {fileID: 4717821393634426, guid: 172998df67304734aaab369580dd9b98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,23 +259,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4717821393634426, guid: 172998df67304734aaab369580dd9b98, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717821393634426, guid: 172998df67304734aaab369580dd9b98, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717821393634426, guid: 172998df67304734aaab369580dd9b98, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
-        type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
         type: 3}
       propertyPath: lengthInSec
@@ -282,18 +266,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
         type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
-        type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 300
+      propertyPath: looping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
         type: 3}
@@ -314,6 +288,21 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198790815957012618, guid: 172998df67304734aaab369580dd9b98,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1143053283549896, guid: 172998df67304734aaab369580dd9b98, type: 3}
       propertyPath: m_Layer

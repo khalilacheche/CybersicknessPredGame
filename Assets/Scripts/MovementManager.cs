@@ -90,7 +90,8 @@ public class MovementManager : MonoBehaviour
 
     [Header("X Translation Parameters")]
     public float xSpeed = 10;
-    public float maxXSpeed = 15.0f; //The max speed at which the player moves
+    public float maxXSpeed = 30.0f; //The max speed at which the player moves
+    public float minXSpeed = 10.0f;
     private int xDirection = 1;
 
 
@@ -218,14 +219,17 @@ public class MovementManager : MonoBehaviour
 
 
     }
-    private void accelerate(int speed) {
+    private void accelerate(float speed) {
         xSpeed += speed;
+        xSpeed = Mathf.Clamp(xSpeed,minXSpeed, maxXSpeed);
     }
-    private void switchSpeed() {/*
-        if (xSpeed <= 10)
-            accelerate(15);
-        else
-            accelerate(5);*/
+    private void switchSpeed() {
+
+        float random = Random.Range(0.0f, 1.0f);
+        int dir = random > 0.5f ? 1 : -1;
+        float acceleration = Random.Range(1.0f, 10.0f);
+        accelerate(dir * acceleration);
+        
     }
     private void moveForward() {
         transform.position += forwardDirection * Time.deltaTime * xSpeed * xDirection;
@@ -340,7 +344,6 @@ public class MovementManager : MonoBehaviour
     }
 
     private void initializeExperiment() {
-      
         switch (experience) {
             case "ooo": {
                     transform.localRotation = Quaternion.Euler(OOOStartRotation);
@@ -363,13 +366,14 @@ public class MovementManager : MonoBehaviour
 
                     transform.localRotation = Quaternion.Euler(OORStartRotation);
                     transform.position = OORStartPosition;
+                    angles = OORAngles;
                     break;
                 }
             case "XoR": {
 
                     transform.localRotation = Quaternion.Euler(XORStartRotation);
                     transform.position = XORStartPosition;
-                    XORAngles.CopyTo(angles, 0);
+                    angles = XORAngles;
                     break;
                 }
 
@@ -377,7 +381,7 @@ public class MovementManager : MonoBehaviour
 
                     transform.localRotation = Quaternion.Euler(OZRStartRotation);
                     transform.position = OZRStartPosition;
-                    OZRAngles.CopyTo(angles, 0);
+                    angles = OZRAngles;
                     break;
                 }
 
@@ -390,7 +394,7 @@ public class MovementManager : MonoBehaviour
             case "XZR":{
                     transform.localRotation = Quaternion.Euler(XZRStartRotation);
                     transform.position = XZRStartPosition;
-                    XZRAngles.CopyTo(angles, 0);
+                    angles = XZRAngles;
                     break;
                 }
         }
