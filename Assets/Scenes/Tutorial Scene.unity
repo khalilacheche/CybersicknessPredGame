@@ -899,7 +899,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: "Don't think about it much, \njust say it spontaneously"
-  duration: 5
+  duration: 6
+  append_timer: 0
 --- !u!102 &31649122
 TextMesh:
   serializedVersion: 3
@@ -1699,6 +1700,7 @@ MonoBehaviour:
   - {fileID: 1830913169}
   - {fileID: 1309204425}
   - {fileID: 1765219444}
+  - {fileID: 128853135}
   startTutorial: 0
 --- !u!4 &45496652
 Transform:
@@ -4032,6 +4034,116 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 127938341}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &128853133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128853134}
+  - component: {fileID: 128853137}
+  - component: {fileID: 128853136}
+  - component: {fileID: 128853135}
+  m_Layer: 0
+  m_Name: The game will start in
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &128853134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128853133}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 939110156}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &128853135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128853133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0556e3500d08c9149a9c567faa098e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: 'The game will start
+
+    in'
+  duration: 10
+  append_timer: 1
+--- !u!102 &128853136
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128853133}
+  m_Text: 
+  m_OffsetZ: 0
+  m_CharacterSize: 0.03
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 500
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &128853137
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128853133}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1001 &131011765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4412,10 +4524,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0556e3500d08c9149a9c567faa098e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 'All you need to do is to say
+  text: 'All you need to do is to say out loud
 
-    how unconfortable you feel'
-  duration: 5
+    how uncomfortable you feel'
+  duration: 6
+  append_timer: 0
 --- !u!102 &143821679
 TextMesh:
   serializedVersion: 3
@@ -5647,7 +5760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "You don't have to worry about \nyour movements in the city.\nYou'll be guided
     automatically"
-  duration: 3
+  duration: 5
+  append_timer: 0
 --- !u!102 &193455011
 TextMesh:
   serializedVersion: 3
@@ -15048,7 +15162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: "To put you in context, \nyou are in a city devastated by fires"
-  duration: 3
+  duration: 5
+  append_timer: 0
 --- !u!102 &540200046
 TextMesh:
   serializedVersion: 3
@@ -22132,7 +22247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: "Your only focus should be on \nextinguishing the fires"
-  duration: 3
+  duration: 5
+  append_timer: 0
 --- !u!102 &809134793
 TextMesh:
   serializedVersion: 3
@@ -24864,6 +24980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Perfect, you've got it!
   duration: 3
+  append_timer: 0
 --- !u!102 &908004366
 TextMesh:
   serializedVersion: 3
@@ -25571,6 +25688,7 @@ Transform:
   - {fileID: 31649120}
   - {fileID: 1830913168}
   - {fileID: 1765219443}
+  - {fileID: 128853134}
   m_Father: {fileID: 630966127}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27912,7 +28030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: "We'll first begin our experiment \nwith a small tutorial"
-  duration: 3
+  duration: 5
+  append_timer: 0
 --- !u!102 &1041459916
 TextMesh:
   serializedVersion: 3
@@ -30313,8 +30432,6 @@ GameObject:
   - component: {fileID: 1113247046}
   - component: {fileID: 1113247045}
   - component: {fileID: 1113247044}
-  - component: {fileID: 1113247051}
-  - component: {fileID: 1113247050}
   m_Layer: 11
   m_Name: Fire
   m_TagString: Fire
@@ -30329,14 +30446,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113247042}
-  m_LocalRotation: {x: -0, y: 0.7502842, z: -0, w: 0.66111547}
-  m_LocalPosition: {x: -142.82187, y: -4.5798454, z: 181.4375}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+  m_LocalPosition: {x: -141.3, y: -5.04, z: 181.4375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1339406097}
+  - {fileID: 1425132119}
+  - {fileID: 2044132507}
   m_Father: {fileID: 630966127}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 97.23, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 90, z: 0}
 --- !u!114 &1113247044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30349,7 +30468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f1a218724d429409c5443f3302b584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1113247051}
+  text: {fileID: 2044132509}
+  image: {fileID: 1425132118}
 --- !u!114 &1113247045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30394,8 +30514,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0.57}
+  m_Size: {x: 1.5442352, y: 1, z: 1}
+  m_Center: {x: 0.016532898, y: 0, z: 0.3}
 --- !u!199 &1113247048
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -31932,7 +32052,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -35081,66 +35201,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!102 &1113247050
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113247042}
-  m_Text: "Press the trigger and \npoint to the fire\nto extinguish it"
-  m_OffsetZ: 6
-  m_CharacterSize: 0.03
-  m_LineSpacing: 1
-  m_Anchor: 7
-  m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 300
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &1113247051
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113247042}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!1001 &1113635271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38496,6 +38556,7 @@ MonoBehaviour:
 
     for joining us'
   duration: 5
+  append_timer: 0
 --- !u!102 &1290295566
 TextMesh:
   serializedVersion: 3
@@ -38682,7 +38743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "For that, you are equipped with a water hose. \nIt's right at the tip of
     your hand"
-  duration: 3
+  duration: 5
+  append_timer: 0
 --- !u!102 &1295587761
 TextMesh:
   serializedVersion: 3
@@ -40215,8 +40277,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339406096}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0011111498, y: 0.03, z: 1.25}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1113247043}
@@ -41737,7 +41799,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -41794,7 +41856,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -46570,6 +46632,84 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1422339445}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1425132118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425132119}
+  - component: {fileID: 1425132121}
+  - component: {fileID: 1425132120}
+  m_Layer: 11
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1425132119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425132118}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 3, y: -11, z: 11}
+  m_LocalScale: {x: 529.2, y: -281.6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1113247043}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+--- !u!33 &1425132120
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425132118}
+  m_Mesh: {fileID: 4300002, guid: b18688407a41db44eb3a0f085e9b0e9f, type: 3}
+--- !u!23 &1425132121
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425132118}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0a5fced20680a8948ba00b3b778b0935, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1426903833
 GameObject:
   m_ObjectHideFlags: 0
@@ -51766,7 +51906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: "All you need to do is press \nthe trigger on the controller \nto eject water"
-  duration: 3
+  duration: 5
+  append_timer: 0
 --- !u!102 &1612440283
 TextMesh:
   serializedVersion: 3
@@ -56376,7 +56517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: "Perfect, you are all set now! \nGet ready for your mission"
-  duration: 10
+  duration: 5
+  append_timer: 0
 --- !u!102 &1765219445
 TextMesh:
   serializedVersion: 3
@@ -57899,6 +58041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Let's try this out
   duration: 5
+  append_timer: 0
 --- !u!102 &1830913170
 TextMesh:
   serializedVersion: 3
@@ -58558,6 +58701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Oh, and another thing!
   duration: 4
+  append_timer: 0
 --- !u!102 &1862257111
 TextMesh:
   serializedVersion: 3
@@ -59383,9 +59527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0556e3500d08c9149a9c567faa098e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "Just to check in on you once in a while,\nyoull be prompted \nto rate your
+  text: "Just to check in on you once in a while,\nyou'll be asked \nto rate your
     discomfort."
-  duration: 5
+  duration: 6
+  append_timer: 0
 --- !u!102 &1883128513
 TextMesh:
   serializedVersion: 3
@@ -61213,6 +61358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Let's try it out now!
   duration: 3
+  append_timer: 0
 --- !u!102 &1919621723
 TextMesh:
   serializedVersion: 3
@@ -63117,6 +63263,98 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2043177144}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2044132506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044132507}
+  - component: {fileID: 2044132509}
+  - component: {fileID: 2044132508}
+  m_Layer: 11
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044132507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044132506}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -8.1, z: 0.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1113247043}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!102 &2044132508
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044132506}
+  m_Text: "Press the trigger and \npoint to the fire\nto extinguish it"
+  m_OffsetZ: 6.24
+  m_CharacterSize: 0.03
+  m_LineSpacing: 1
+  m_Anchor: 7
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 300
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &2044132509
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044132506}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1001 &2044936091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63248,7 +63486,8 @@ MonoBehaviour:
   text: 'Your role is to extinguish
 
     as much fire as possible'
-  duration: 3
+  duration: 5
+  append_timer: 0
 --- !u!102 &2046439718
 TextMesh:
   serializedVersion: 3

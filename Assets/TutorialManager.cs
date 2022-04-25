@@ -44,13 +44,13 @@ public class TutorialManager : MonoBehaviour
     {
 
         int left = Screen.width / 2 - 50 / 2;
-        int top = Screen.height - 20 - 50;
+        int top = Screen.height - 20 - 100;
 
-        if (GUI.Button(new Rect(left, top, 50, 20), "Start"))
+        if (GUI.Button(new Rect(left, top, 200, 100), "Start"))
         {
             startTutorial = true;
         }
-        if (GUI.Button(new Rect(left, 20, 100, 20), "End tutorial"))
+        if (GUI.Button(new Rect(left, 20, 200, 100), "End"))
         {
             currentAction = actions.Count;
             actionEnded();

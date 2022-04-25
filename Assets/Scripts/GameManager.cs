@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 { 
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     private LSLEventMarker eventMarker;
 
-
+    private Text playerText;
 
     private GameObject player;
 
@@ -49,6 +50,11 @@ public class GameManager : MonoBehaviour
         turnarounds = GameObject.FindGameObjectsWithTag("turnaround");
         turns = GameObject.FindGameObjectsWithTag("turn");
         discommforGUIManager = player.GetComponent<PlayerParameters>().discomfort_Manager;
+        playerText = player.GetComponent<PlayerParameters>().text;
+        playerText.text = "Start!";
+        playerText.gameObject.SetActive(true);
+        StartCoroutine(disableAfterTime(1.5f, playerText.gameObject));
+
         GameObject[] firesAsGO = GameObject.FindGameObjectsWithTag("Fire");
         fires = new Fire [firesAsGO.Length];
         //numActiveFires = fires.Length;
@@ -75,6 +81,12 @@ public class GameManager : MonoBehaviour
                 }
         }
     }
+    IEnumerator disableAfterTime(float time, GameObject go)
+    {
+        yield return new WaitForSeconds(time);
+        
+        go.SetActive(false);
+    }
 
     private void PromptUser(){
         discommforGUIManager.enableDiscomfortGUI();
@@ -84,6 +96,10 @@ public class GameManager : MonoBehaviour
         if (experimentEnded)
         {
             Time.timeScale = 0;
+            if (!playerText.gameObject.activeSelf){
+                playerText.text = "Thank you for your time!";
+                playerText.gameObject.SetActive(true);
+            }
             return;
         }
         if (forceQuit)
@@ -138,9 +154,13 @@ public class GameManager : MonoBehaviour
         int left = Screen.width / 2 - 50 / 2;
         int top = Screen.height - 20 - 50;
 
-        if (GUI.Button(new Rect(left, top, 200, 50), "Force Quit"))
+        if (GUI.Button(new Rect(left, top, 200, 100), "Force Quit"))
         {
             forceQuit = true;
+        }
+        if (GUI.Button(new Rect(left, 20, 200, 100), "End Game"))
+        {
+            timer = EXPERIMENT_DURATION_TIME;
         }
         GUI.Label(new Rect(left, Screen.height / 2 - 10, 100, 100), ((int)(timer/60)).ToString()+":"+(int)(timer % 60));
 

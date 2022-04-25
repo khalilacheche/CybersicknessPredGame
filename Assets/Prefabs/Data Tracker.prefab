@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243d71226c8dd2f43994a0cec85be30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PortName: COM6
+  enabled: 1

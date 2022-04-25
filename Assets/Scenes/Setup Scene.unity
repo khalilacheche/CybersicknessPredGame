@@ -315,6 +315,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1989706817, guid: 0647c6af8cbb479428321c760fa2a478, type: 3}
+      propertyPath: timeBetweenAccelerations
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0647c6af8cbb479428321c760fa2a478, type: 3}
 --- !u!1 &621003907 stripped
@@ -594,16 +598,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208340964723125826, guid: 294b9faf998be414aa33561927be3e62,
-        type: 3}
-      propertyPath: PortName
-      value: COM6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208340964723125826, guid: 294b9faf998be414aa33561927be3e62,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 294b9faf998be414aa33561927be3e62, type: 3}

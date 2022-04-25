@@ -15,6 +15,7 @@ public class Fire : MonoBehaviour
     private ParticleSystem smokePS;
     private float deathTimeCounter =0;
     public float timeDeadSeconds = 10;
+    private float multiplier;
 
     private GameManager gm;
 
@@ -31,6 +32,7 @@ public class Fire : MonoBehaviour
         var smokeEmission = smokePS.emission;
         smokeEmission.rateOverTime = 0;
         reset();
+        multiplier = 0;
         
         
     }
@@ -46,10 +48,10 @@ public class Fire : MonoBehaviour
         
         float fireRate = map(health, 0,maxHealth, 0, initialFireRate);
         var fireEmission =firePS.emission;
-        fireEmission.rateOverTime = fireRate;
+        fireEmission.rateOverTime = fireRate * multiplier;
         float smokeRate = map(health, 0, maxHealth, 0 , initialSmokeRate);
         var smokeEmission = smokePS.emission;
-        smokeEmission.rateOverTime = smokeRate;
+        smokeEmission.rateOverTime = smokeRate * multiplier;
         
     }
     public void reset (){
@@ -80,6 +82,20 @@ public class Fire : MonoBehaviour
             }
         }
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("ViewPort"))
+        {
+            multiplier = 1;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("ViewPort"))
+        {
+            multiplier = 0;
+        }
     }
 }
 

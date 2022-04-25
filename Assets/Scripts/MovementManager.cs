@@ -181,7 +181,6 @@ public class MovementManager : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider col) {
-        Debug.Log(col.name);
         if (col.gameObject.layer == LayerMask.NameToLayer("turn")) {
             rotateAxis();
         }
@@ -278,7 +277,7 @@ public class MovementManager : MonoBehaviour
         }
     }
     private void ChangeOfAccelerationByFrequency() {
-        switchTime += Time.deltaTime;
+        switchTime += Time.fixedDeltaTime;
         if (switchTime > timeBetweenAccelerations) {
             switch (experience) {
                 case "Xoo":
@@ -398,7 +397,12 @@ public class MovementManager : MonoBehaviour
                     break;
                 }
         }
+        
         forwardDirection = transform.forward;
+        if(experience == "oZo")
+        {
+            forwardDirection = new Vector3(-1, 0, 0);
+        }
         leftDirection = new Vector3(forwardDirection.z, forwardDirection.y, -forwardDirection.x);
     }
     public void initializeExperimentPosition(){
