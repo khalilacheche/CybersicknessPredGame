@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5423737671979681843}
   - component: {fileID: 5423737671979681842}
   - component: {fileID: 5423737671979681852}
+  - component: {fileID: 8208340964723125826}
   m_Layer: 0
   m_Name: Data Tracker
   m_TagString: DataTracker
@@ -97,3 +98,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lslStreamName: Player_Game_Movement
   lslStreamType: Player_Data
+--- !u!114 &8208340964723125826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423737671979681854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243d71226c8dd2f43994a0cec85be30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PortName: COM6
+  enabled: 1

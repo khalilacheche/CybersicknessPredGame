@@ -31,7 +31,6 @@ public class SetupManager : MonoBehaviour
             // Do Nothing
         }
         Player.GetComponent<MovementManager>().setPosition(Vector3.zero);
-        DataTrackerObject.GetComponent<LSLEventMarker>().PushData("SETUP_START");
 
         calibrationSuccess = false;
     }
@@ -59,7 +58,7 @@ public class SetupManager : MonoBehaviour
                 text.gameObject.SetActive( false);
 
 
-                DataTrackerObject.GetComponent<LSLEventMarker>().PushData("SETUP_END");
+                DataTrackerObject.GetComponent<LSLEventMarker>().PushData("SETUP_END",5);
 
                 KickStartExperiment();
             }
@@ -81,5 +80,59 @@ public class SetupManager : MonoBehaviour
         }else{
             SceneManager.LoadScene(1);
         }
+    }
+
+    
+    Rect windowRect = new Rect(20, 20, 300 , 300);
+    Rect playerParametersWindow = new Rect(Screen.width - 300 - 20, 20, 300 , 300);
+
+
+    void OnGUI()
+    {
+        GUI.skin.label.fontSize = 50;
+        GUI.skin.toggle.fontSize = 30;
+        GUI.skin.button.fontSize = 30;
+
+        // Register the window. Notice the 3rd parameter
+        windowRect = GUI.Window(0, windowRect, DoMyWindow, "Params");
+        playerParametersWindow = GUI.Window(1, playerParametersWindow, DoPlayerParamWindow, "Player Params");
+
+        
+        int left = Screen.width / 2 - 100/ 2;
+        int top = Screen.height - 20 - 100;
+
+        if (GUI.Button(new Rect(left, top, 100, 30), "Start"))
+        {
+            setupComplete = true;
+        }
+        if (setupComplete)
+        {
+            GUI.Label(new Rect(left, Screen.height / 2 - 10, 100, 100), ((int)timer).ToString());
+        }
+    }
+
+
+    // Make the contents of the window
+    void DoMyWindow(int windowID)
+    {
+        skipTutorial = GUILayout.Toggle(skipTutorial, "Skip Tuto");
+        if (GUI.Button(new Rect(10, 100, 200, 100), "Calibration"))
+        {
+            startCalibration = true;
+        }
+        GUI.DragWindow(new Rect(0, 0, 10000, 10000));
+        
+
+    }
+
+    void DoPlayerParamWindow(int windowID)
+    {
+        Player.GetComponent<PlayerParameters>().rightHanded= GUILayout.Toggle(Player.GetComponent<PlayerParameters>().rightHanded, "Right Handed?");
+        Player.GetComponent<MovementManager>().xTranslation = GUILayout.Toggle(Player.GetComponent<MovementManager>().xTranslation, "X Translation");
+        Player.GetComponent<MovementManager>().zTranslation = GUILayout.Toggle(Player.GetComponent<MovementManager>().zTranslation, "Z Translation");
+        Player.GetComponent<MovementManager>().yRotation = GUILayout.Toggle(Player.GetComponent<MovementManager>().yRotation, "Y Rotation");
+        GUI.DragWindow(new Rect(0, 0, 10000, 10000));
+
+
     }
 }

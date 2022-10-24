@@ -8,17 +8,12 @@ TagManager:
   - FxTemporaire
   - Level
   - Floor
-  - Coin
   - Manager
-  - MarkerObject
-  - CoinListObject
   - Obstacle
   - Fire
   - Water
   - turn
   - turnaround
-  - carFront
-  - carBehind
   - WaterHose
   - DataTracker
   layers:
@@ -36,11 +31,11 @@ TagManager:
   - Fire
   - GameManager
   - Obstacle
-  - carBehind
-  - carFront
   - turn
   - turnaround
   - noDepassingZone
+  - ViewPort
+  - 
   - 
   - 
   - 

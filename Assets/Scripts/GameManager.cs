@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 { 
@@ -24,11 +25,11 @@ public class GameManager : MonoBehaviour
     public Transform [] rightLanes = new Transform[4];
 
     public static float EXPERIMENT_DURATION_TIME = 20 * 60; //Duration in seconds
-    public float remainingTime;
+    public float timer;
 
     private LSLEventMarker eventMarker;
 
-
+    private Text playerText;
 
     private GameObject player;
 
@@ -36,10 +37,10 @@ public class GameManager : MonoBehaviour
     void Start(){
         experimentEnded = false;
         eventMarker = GameObject.FindGameObjectWithTag("DataTracker").GetComponent<LSLEventMarker>();
-        eventMarker.PushData("EXP_START");
-        remainingTime = EXPERIMENT_DURATION_TIME;
+        eventMarker.PushData("EXP_START",1);
+        timer = 0;
         score = 0;
-        //InvokeRepeating("PromptUser", 10, 20);
+        InvokeRepeating("PromptUser", 60, 60);
         currentFire = null;
         previousFire = null;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -49,6 +50,11 @@ public class GameManager : MonoBehaviour
         turnarounds = GameObject.FindGameObjectsWithTag("turnaround");
         turns = GameObject.FindGameObjectsWithTag("turn");
         discommforGUIManager = player.GetComponent<PlayerParameters>().discomfort_Manager;
+        playerText = player.GetComponent<PlayerParameters>().text;
+        playerText.text = "Start!";
+        playerText.gameObject.SetActive(true);
+        StartCoroutine(disableAfterTime(1.5f, playerText.gameObject));
+
         GameObject[] firesAsGO = GameObject.FindGameObjectsWithTag("Fire");
         fires = new Fire [firesAsGO.Length];
         //numActiveFires = fires.Length;
@@ -75,32 +81,38 @@ public class GameManager : MonoBehaviour
                 }
         }
     }
-
-    private void PromptUser(){
-        discommforGUIManager.enableDiscomfortGUI(userEndedDiscomfortHandler);
+    IEnumerator disableAfterTime(float time, GameObject go)
+    {
+        yield return new WaitForSeconds(time);
+        
+        go.SetActive(false);
     }
 
-    public void userEndedDiscomfortHandler(){
-        Debug.Log(discommforGUIManager.getDiscomfort());
+    private void PromptUser(){
+        discommforGUIManager.enableDiscomfortGUI();
     }
 
     void Update(){
         if (experimentEnded)
         {
             Time.timeScale = 0;
+            if (!playerText.gameObject.activeSelf){
+                playerText.text = "Thank you for your time!";
+                playerText.gameObject.SetActive(true);
+            }
             return;
         }
         if (forceQuit)
         {
-            eventMarker.PushData("EXP_END_FORCEQUIT");
+            eventMarker.PushData("EXP_END_FORCEQUIT",2);
             experimentEnded = true;
         }
 
-        remainingTime -= Time.deltaTime;
-        if(remainingTime < 0)
+        timer += Time.deltaTime;
+        if(timer>= EXPERIMENT_DURATION_TIME)
         {
             Debug.Log("Experiment Ended");
-            eventMarker.PushData("EXP_END_TIME");
+            eventMarker.PushData("EXP_END_TIME",3);
             experimentEnded = true;
 
 
@@ -136,5 +148,21 @@ public class GameManager : MonoBehaviour
     public float getFireIntensity(){
         return ((float)numActiveFires)/fires.Length;
     }
-    
+    void OnGUI()
+    {
+
+        int left = Screen.width / 2 - 50 / 2;
+        int top = Screen.height - 20 - 50;
+
+        if (GUI.Button(new Rect(left, top, 200, 100), "Force Quit"))
+        {
+            forceQuit = true;
+        }
+        if (GUI.Button(new Rect(left, 20, 200, 100), "End Game"))
+        {
+            timer = EXPERIMENT_DURATION_TIME;
+        }
+        GUI.Label(new Rect(left, Screen.height / 2 - 10, 100, 100), ((int)(timer/60)).ToString()+":"+(int)(timer % 60));
+
+    }
 }

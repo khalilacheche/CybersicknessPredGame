@@ -10,9 +10,11 @@ public class DiscomfortGUIAction : Action
 
     private float trackpad;
     private bool hasEnded;
+    private bool hasStarted;
     // Start is called before the first frame update
     void Start()
     {
+        hasStarted = false;
         hasEnded = false;
         manager = GameObject.Find("Tutorial Manager").GetComponent<TutorialManager>();
         discomfort_Manager = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerParameters>().discomfort_Manager;
@@ -21,9 +23,13 @@ public class DiscomfortGUIAction : Action
     // Update is called once per frame
     void Update()
     {
-        
+        if (hasStarted && !hasEnded && Input.GetKeyDown("space"))
+        {
+            hasEnded = true;
+            userEndedDiscomfortHandler();
+        }
     }
-    public void userEndedDiscomfortHandler(){
+    void userEndedDiscomfortHandler(){
         endAction();
         gameObject.SetActive(false);
 
@@ -31,8 +37,9 @@ public class DiscomfortGUIAction : Action
     
     public override void startAction()
     {
-        discomfort_Manager?.enableDiscomfortGUI(userEndedDiscomfortHandler);
+        discomfort_Manager?.enableDiscomfortGUI();
         hasEnded = false;
+        hasStarted = true;
     }
 
 }
